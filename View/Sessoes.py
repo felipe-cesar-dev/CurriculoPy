@@ -1,8 +1,10 @@
 import tkinter as tk
+
+from View.ClassesAbstratas.InputsABS import InputsABC
 from View.ClassesAbstratas.SessoesABS import SessoesAbstrata
 
 class Sessoes(SessoesAbstrata):
-    def __init__(self):
+    def __init__(self, inputs: InputsABC):
         super().__init__()
         self.__dadosPessoais = None
         self.__infosCtt = None
@@ -13,10 +15,12 @@ class Sessoes(SessoesAbstrata):
         self.__exp = None
         self.__formAcademica = None
         self.__sobreMim = None
+        self.__inputs = inputs
 
     def criarSessoes(self, camada):
         self.__dadosPessoais = self.sessao(camada, 255, 227)
         self.__dadosPessoais.place(relx=0.124, rely=0.22, anchor=tk.CENTER)
+        self.__inputs.criarInputs(self.__dadosPessoais)
 
         self.__infosCtt = self.sessao(camada,255, 227)
         self.__infosCtt.place(relx=0.374, rely=0.22, anchor=tk.CENTER)

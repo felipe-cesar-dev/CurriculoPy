@@ -24,6 +24,6 @@ class Tela:
 
 inputs = Inputs()
 labels = Labels()
-sessoes = Sessoes()
+sessoes = Sessoes(inputs)
 tela = Tela(sessoes, labels)
 tela.run()
