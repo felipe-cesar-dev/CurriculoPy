@@ -3,7 +3,6 @@ from tkinter.constants import CENTER
 from View.ClassesAbstratas.InputsABS import InputsABC
 import tkinter as tk
 
-
 class Inputs(InputsABC):
     def __init__(self):
         super().__init__()
@@ -14,5 +13,5 @@ class Inputs(InputsABC):
         return input
 
     def criarInputs(self, camada):
-        pass
-
+        self.__input = self.input(camada)
+        self.__input.place(relx= 0.35, rely= 0.4, anchor=CENTER)
