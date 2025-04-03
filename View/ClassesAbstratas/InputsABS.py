@@ -8,5 +8,5 @@ class InputsABC(ABC):
         pass
 
     @abstractmethod
-    def criarInputs(self, camada):
+    def criarInputsDados(self, camada):
         pass

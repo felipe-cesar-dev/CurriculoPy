@@ -20,7 +20,7 @@ class Sessoes(SessoesAbstrata):
     def criarSessoes(self, camada):
         self.__dadosPessoais = self.sessao(camada, 255, 227)
         self.__dadosPessoais.place(relx=0.124, rely=0.22, anchor=tk.CENTER)
-        self.__inputs.criarInputs(self.__dadosPessoais)
+        self.__inputs.criarInputsDados(self.__dadosPessoais)
 
         self.__infosCtt = self.sessao(camada,255, 227)
         self.__infosCtt.place(relx=0.374, rely=0.22, anchor=tk.CENTER)

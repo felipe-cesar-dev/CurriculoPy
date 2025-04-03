@@ -6,12 +6,14 @@ import tkinter as tk
 class Inputs(InputsABC):
     def __init__(self):
         super().__init__()
-        self.__input = None
+
 
     def input(self, camada):
         input = tk.Entry(camada, bg='light gray', font=("Arial", 14), width=15)
         return input
 
-    def criarInputs(self, camada):
-        self.__input = self.input(camada)
-        self.__input.place(relx= 0.35, rely= 0.4, anchor=CENTER)
+    def criarInputsDados(self, camada):
+        nome = self.input(camada)
+        nome.place(relx= 0.37, rely= 0.35, anchor=CENTER)
+        profissao = self.input(camada)
+        profissao.place(relx= 0.37, rely= 0.65, anchor=CENTER)
