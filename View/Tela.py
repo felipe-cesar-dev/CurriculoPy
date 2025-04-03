@@ -1,4 +1,5 @@
 import tkinter as tk
+from View.Inputs import Inputs
 from View.Labels import Labels
 from View.ClassesAbstratas.LabelsABS import LabelsAbstrata
 from View.ClassesAbstratas.SessoesABS import SessoesAbstrata
@@ -15,13 +16,13 @@ class Tela:
         self.camada2.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
         self.sessoes = sessao
         self.labels = label
-        sessoes.criarSessoes(self.camada2)
-        label.criarLabels(self.camada2)
-
+        self.sessoes.criarSessoes(self.camada2)
+        self.labels.criarLabels(self.camada2)
 
     def run(self):
         self.tk.mainloop()
 
+inputs = Inputs()
 labels = Labels()
 sessoes = Sessoes()
 tela = Tela(sessoes, labels)
