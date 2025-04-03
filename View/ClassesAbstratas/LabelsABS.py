@@ -10,3 +10,6 @@ class LabelsAbstrata(ABC):
     @abstractmethod
     def labels(self, texto, camada):
         pass
+    @abstractmethod
+    def labelsInputs(self, texto, camada):
+        pass
