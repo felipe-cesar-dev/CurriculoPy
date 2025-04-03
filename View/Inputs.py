@@ -11,7 +11,11 @@ class Inputs(InputsABC):
         return input
 
     def criarInputsDados(self, camada):
+        nomeLabel = tk.Label(camada, text='Nome: ', font=('Arial', 12), bg='white')
+        nomeLabel.place(relx= 0.14, rely= 0.20, anchor=CENTER)
         nome = self.input(camada)
         nome.place(relx= 0.37, rely= 0.35, anchor=CENTER)
+        profissaLabel = tk.Label(camada, text='Profissão: ', font=('Arial', 12), bg='white')
+        profissaLabel.place(relx= 0.18, rely= 0.50, anchor=CENTER)
         profissao = self.input(camada)
         profissao.place(relx= 0.37, rely= 0.65, anchor=CENTER)
