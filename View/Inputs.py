@@ -10,9 +10,9 @@ class Inputs(InputsABC):
         self.__input = None
 
     def input(self, camada):
-        input = tk.Entry(camada, bg='light gray')
+        input = tk.Entry(camada, bg='light gray', font=("Arial", 14), width=15)
         return input
 
     def criarInputs(self, camada):
-        self.__input = self.input(camada)
-        self.__input.place(relx = 0.7, rely= 0.7, anchor= CENTER)
+        pass
+

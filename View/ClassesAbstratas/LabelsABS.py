@@ -8,5 +8,5 @@ class LabelsAbstrata(ABC):
     def criarLabels(self, camada):
         pass
     @abstractmethod
-    def labels(self, camada, w, h):
+    def labels(self, texto, camada):
         pass
