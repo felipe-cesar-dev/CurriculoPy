@@ -48,8 +48,9 @@ class Labels(LabelsAbstrata):
         label = tk.Label(camada, text=texto, bg='#283EB8', font=('Times', 14), fg='white')
         return label
 
-    def labelsInputs(self, texto, camada):
-        label = tk.Label(camada, text=texto, font=('Times', 12), fg='black')
+    def labelsInputs(self, texto, camada, x, y, anchor):
+        label = tk.Label(camada, text=texto, font=('Arial', 12), fg='black', bg='white')
+        label.place(relx=x, rely=y, anchor= anchor)
         return label
 
 

@@ -11,5 +11,5 @@ class LabelsAbstrata(ABC):
     def labels(self, texto, camada):
         pass
     @abstractmethod
-    def labelsInputs(self, texto, camada):
+    def labelsInputs(self, texto, camada, x, y, anchor):
         pass

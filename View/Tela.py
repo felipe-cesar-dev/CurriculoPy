@@ -21,9 +21,9 @@ class Tela:
 
     def run(self):
         self.tk.mainloop()
-
-inputs = Inputs()
 labels = Labels()
+inputs = Inputs(labels)
+
 sessoes = Sessoes(inputs)
 tela = Tela(sessoes, labels)
 tela.run()
