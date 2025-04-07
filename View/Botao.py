@@ -1,10 +1,10 @@
 from View.ClassesAbstratas.BotaoABS import BotaoABS
 import tkinter as tk
 
-class BotaoArmazenar(BotaoABS):
+class Botao(BotaoABS):
     def __init__(self):
         super().__init__()
 
-    def criarBotao(self, camada, texto):
-        botao = tk.Button(text= texto, height=1, width=5, font=('Arial', 12), bg='green', fg='white')
-        botao.place(in_=camada, relx=0.4, rely=0.85)
+    def criarBotao(self, camada, texto, x, y, h, w):
+        botao = tk.Button(text= texto, height=h, width=w, font=('Arial', 12), bg='green', fg='white')
+        botao.place(in_=camada, relx=x, rely=y)

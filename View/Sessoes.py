@@ -38,7 +38,7 @@ class Sessoes(SessoesAbstrata):
         ]
 
         for i in range(len(todasSessoes)):
-            self.__botao.criarBotao(todasSessoes[i], 'Salvar')
+            self.__botao.criarBotao(todasSessoes[i], 'Salvar', 0.4, 0.85, 1, 5)
 
         self.__inputs.buildInputs(
             self.__dadosPessoais, self.__infosCtt, self.__infosPess, self.__redes, self.__cursos, self.__conhecimentos,

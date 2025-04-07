@@ -1,6 +1,6 @@
 import tkinter as tk
 
-from View.Botao import BotaoArmazenar
+from View.Botao import Botao
 from View.Inputs import Inputs
 from View.Labels import Labels
 from View.ClassesAbstratas.LabelsABS import LabelsAbstrata
@@ -8,7 +8,7 @@ from View.ClassesAbstratas.SessoesABS import SessoesAbstrata
 from View.Sessoes import Sessoes
 
 class Tela:
-    def __init__(self, sessao: SessoesAbstrata, label: LabelsAbstrata):
+    def __init__(self, sessao: SessoesAbstrata, label: LabelsAbstrata, botao: Botao):
         self.tk = tk.Tk()
         self.tk.geometry("1280x760")
         self.tk.title("Crie seu currículo")
@@ -17,9 +17,12 @@ class Tela:
         self.camada2 = tk.Canvas(self.camada1, width=1156, height=732, bg='#283EB8', highlightthickness=0)
         self.camada2.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
         self.sessoes = sessao
+        self.botao = botao
         self.labels = label
         self.sessoes.criarSessoes(self.camada2)
         self.labels.criarLabels(self.camada2)
+        self.botao.criarBotao(self.camada2,'Gerar Currículo', 0.35, 0.95, 1, 13)
+        self.botao.criarBotao(self.camada2, 'Limpar Campos', 0.48, 0.95, 1, 13)
 
     def run(self):
         self.tk.mainloop()
@@ -27,8 +30,8 @@ class Tela:
 
 labels = Labels()
 inputs = Inputs(labels)
-botao = BotaoArmazenar()
+botao = Botao()
 
 sessoes = Sessoes(inputs, botao)
-tela = Tela(sessoes, labels)
+tela = Tela(sessoes, labels, botao)
 tela.run()
