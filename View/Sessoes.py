@@ -1,9 +1,11 @@
 import tkinter as tk
+
+from View.ClassesAbstratas.BotaoABS import BotaoABS
 from View.ClassesAbstratas.InputsABS import InputsABC
 from View.ClassesAbstratas.SessoesABS import SessoesAbstrata
 
 class Sessoes(SessoesAbstrata):
-    def __init__(self, inputs: InputsABC):
+    def __init__(self, inputs: InputsABC, botao: BotaoABS):
         super().__init__()
         self.__dadosPessoais = None
         self.__infosCtt = None
@@ -15,6 +17,7 @@ class Sessoes(SessoesAbstrata):
         self.__formAcademica = None
         self.__sobreMim = None
         self.__inputs = inputs
+        self.__botao = botao
         self.__y = 0.22
         self.__y2 = 0.68
 
@@ -28,6 +31,14 @@ class Sessoes(SessoesAbstrata):
         self.__exp = self.sessao(camada,216, 342, 0.5, self.__y2)
         self.__formAcademica = self.sessao(camada,216, 342, 0.695, self.__y2)
         self.__sobreMim = self.sessao(camada,216, 342, 0.89, self.__y2)
+
+        todasSessoes = [
+            self.__dadosPessoais, self.__infosCtt,  self.__infosPess, self.__redes, self.__cursos, self.__conhecimentos,
+            self.__exp, self.__formAcademica, self.__sobreMim
+        ]
+
+        for i in range(len(todasSessoes)):
+            self.__botao.criarBotao(todasSessoes[i])
 
         self.__inputs.buildInputs(
             self.__dadosPessoais, self.__infosCtt, self.__infosPess, self.__redes, self.__cursos, self.__conhecimentos,

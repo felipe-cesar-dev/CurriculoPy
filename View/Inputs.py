@@ -14,7 +14,7 @@ class Inputs(InputsABC):
         self.c = 0.73
         self.d = 0.37
         self.y1 = 0.11
-        self.y2 = 0.37
+        self.y2 = self.d
         self.y3 = 0.63
 
     def input(self, camada, a, b):

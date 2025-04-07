@@ -1,4 +1,6 @@
 import tkinter as tk
+
+from View.BotaoArmazenar import BotaoArmazenar
 from View.Inputs import Inputs
 from View.Labels import Labels
 from View.ClassesAbstratas.LabelsABS import LabelsAbstrata
@@ -25,7 +27,8 @@ class Tela:
 
 labels = Labels()
 inputs = Inputs(labels)
+botao = BotaoArmazenar()
 
-sessoes = Sessoes(inputs)
+sessoes = Sessoes(inputs, botao)
 tela = Tela(sessoes, labels)
 tela.run()
