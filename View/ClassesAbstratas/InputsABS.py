@@ -22,3 +22,7 @@ class InputsABC(ABC):
     @abstractmethod
     def criarInputsRedes(self, camada):
         pass
+
+    @abstractmethod
+    def criarInputsAdicionais(self, camada):
+        pass

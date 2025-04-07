@@ -72,4 +72,16 @@ class Inputs(InputsABC):
 
         linkedin = self.input(camada)
         linkedin.place(relx= self.d, rely= self.c, anchor=CENTER)
-    
+
+    def criarInputsAdicionais(self, camada):
+        valores = {'x1': 0.5, 'y1': 0.12, 'y2': 0.28, 'y3': 0.44, 'y4': 0.60, 'y5': 0.76}
+        a1 = self.input(camada)
+        a1.place(relx= valores.get('x1'), rely= valores.get('y1'), anchor=CENTER)
+        a2 = self.input(camada)
+        a2.place(relx= valores.get('x1'), rely= valores.get('y2'), anchor=CENTER)
+        a3 = self.input(camada)
+        a3.place(relx= valores.get('x1'), rely= valores.get('y3'), anchor=CENTER)
+        a4 = self.input(camada)
+        a4.place(relx= valores.get('x1'), rely= valores.get('y4'), anchor=CENTER)
+        a5 = self.input(camada)
+        a5.place(relx= valores.get('x1'), rely= valores.get('y5'), anchor=CENTER)

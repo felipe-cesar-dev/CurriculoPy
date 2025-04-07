@@ -36,15 +36,19 @@ class Sessoes(SessoesAbstrata):
 
         self.__cursos = self.sessao(camada,216, 342)
         self.__cursos.place(relx=0.1095, rely=0.68, anchor=tk.CENTER)
+        self.__inputs.criarInputsAdicionais(self.__cursos)
 
         self.__conhecimentos = self.sessao(camada,216, 342)
         self.__conhecimentos.place(relx=0.305, rely=0.68, anchor=tk.CENTER)
+        self.__inputs.criarInputsAdicionais(self.__conhecimentos)
 
         self.__exp = self.sessao(camada,216, 342)
         self.__exp.place(relx=0.5, rely=0.68, anchor=tk.CENTER)
+        self.__inputs.criarInputsAdicionais(self.__exp)
 
         self.__formAcademica = self.sessao(camada,216, 342)
         self.__formAcademica.place(relx=0.695, rely=0.68, anchor=tk.CENTER)
+        self.__inputs.criarInputsAdicionais(self.__formAcademica)
 
         self.__sobreMim = self.sessao(camada,216, 342)
         self.__sobreMim.place(relx=0.89, rely=0.68, anchor=tk.CENTER)
