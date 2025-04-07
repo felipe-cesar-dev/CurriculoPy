@@ -26,66 +26,43 @@ class Inputs(InputsABC):
         self.__labels.labelsInputs('Nome: ', camada, 0.14, self.y1, CENTER)
         self.__labels.labelsInputs('Profissão: ', camada, 0.18, self.y2, CENTER)
 
-        nome = self.input(camada)
-        nome.place(relx= self.d, rely= self.a, anchor=CENTER)
-
-        profissao = self.input(camada)
-        profissao.place(relx= self.d, rely= self.b, anchor=CENTER)
+        nome = self.input(camada, self.d, self.a)
+        profissao = self.input(camada, self.d, self.b)
 
     def criarInputsContato(self, camada):
         self.__labels.labelsInputs('Celular: ', camada, 0.14, self.y1, CENTER)
         self.__labels.labelsInputs('E-mail: ', camada, 0.14, self.y2, CENTER)
         self.__labels.labelsInputs('Endereço: ', camada, 0.19, self.y3, CENTER)
 
-        celular = self.input(camada)
-        celular.place(relx= self.d, rely= self.a, anchor=CENTER)
-
-        email = self.input(camada)
-        email.place(relx= self.d, rely= self.b, anchor=CENTER)
-
-        endereco = self.input(camada)
-        endereco.place(relx= self.d, rely= self.c, anchor=CENTER)
+        celular = self.input(camada, self.d, self.a)
+        email = self.input(camada, self.d, self.b)
+        endereco = self.input(camada, self.d, self.c)
 
     def criarInputsPessoais(self, camada):
         self.__labels.labelsInputs('Data de Nascimento: ', camada, 0.33, self.y1, CENTER)
         self.__labels.labelsInputs('Estado Cívil: ', camada, 0.21, self.y2, CENTER)
         self.__labels.labelsInputs('Nacionalidade: ', camada, 0.25, self.y3, CENTER)
 
-        nasc = self.input(camada)
-        nasc.place(relx= self.d, rely= self.a, anchor=CENTER)
-
-        eCivil = self.input(camada)
-        eCivil.place(relx= self.d, rely= self.b, anchor=CENTER)
-
-        nacionalidade = self.input(camada)
-        nacionalidade.place(relx= self.d, rely= self.c, anchor=CENTER)
+        nasc = self.input(camada, self.d, self.a)
+        eCivil = self.input(camada, self.d, self.b)
+        nacionalidade = self.input(camada, self.d, self.c)
 
     def criarInputsRedes(self, camada):
         self.__labels.labelsInputs('Facebook: ', camada, 0.19, self.y1, CENTER)
         self.__labels.labelsInputs('Instagram: ', camada, 0.19, self.y2, CENTER)
         self.__labels.labelsInputs('Linkedin: ', camada, 0.17, self.y3, CENTER)
 
-        face = self.input(camada)
-        face.place(relx= self.d, rely= self.a, anchor=CENTER)
-
-        insta = self.input(camada)
-        insta.place(relx= self.d, rely= self.b, anchor=CENTER)
-
-        linkedin = self.input(camada)
-        linkedin.place(relx= self.d, rely= self.c, anchor=CENTER)
+        face = self.input(camada, self.d, self.a)
+        insta = self.input(camada, self.d, self.b)
+        linkedin = self.input(camada, self.d, self.c)
 
     def criarInputsAdicionais(self, camada):
         valores = {'x1': 0.5, 'y1': 0.12, 'y2': 0.28, 'y3': 0.44, 'y4': 0.60, 'y5': 0.76}
-        a1 = self.input(camada)
-        a1.place(relx= valores.get('x1'), rely= valores.get('y1'), anchor=CENTER)
-        a2 = self.input(camada)
-        a2.place(relx= valores.get('x1'), rely= valores.get('y2'), anchor=CENTER)
-        a3 = self.input(camada)
-        a3.place(relx= valores.get('x1'), rely= valores.get('y3'), anchor=CENTER)
-        a4 = self.input(camada)
-        a4.place(relx= valores.get('x1'), rely= valores.get('y4'), anchor=CENTER)
-        a5 = self.input(camada)
-        a5.place(relx= valores.get('x1'), rely= valores.get('y5'), anchor=CENTER)
+        a1 = self.input(camada, valores.get('x1'), valores.get('y1'))
+        a2 = self.input(camada, valores.get('x1'), valores.get('y2'))
+        a3 = self.input(camada,valores.get('x1'), valores.get('y3'))
+        a4 = self.input(camada, valores.get('x1'), valores.get('y4'))
+        a5 = self.input(camada, valores.get('x1'), valores.get('y5'))
 
     def criarInputsTexto(self, camada):
         texto = tk.Text(camada,font=("Arial", 12), height=14, width=19, bg='light gray')
