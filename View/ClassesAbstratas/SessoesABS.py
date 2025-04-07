@@ -8,5 +8,5 @@ class SessoesAbstrata(ABC):
     def criarSessoes(self, camada):
         pass
     @abstractmethod
-    def sessao(self, camada, w, h):
+    def sessao(self, camada, w, h, x, y):
         pass
