@@ -12,9 +12,9 @@ class Inputs(InputsABC):
         self.a = 0.21
         self.b = 0.47
         self.c = 0.73
-        self.d = 0.37
+        self.d = 0.5
         self.y1 = 0.11
-        self.y2 = self.d
+        self.y2 = 0.37
         self.y3 = 0.63
 
     def input(self, camada, a, b):
@@ -23,34 +23,34 @@ class Inputs(InputsABC):
         return input
 
     def criarInputsDados(self, camada):
-        self.__labels.labelsInputs('Nome: ', camada, 0.14, self.y1, CENTER)
-        self.__labels.labelsInputs('Profissão: ', camada, 0.18, self.y2, CENTER)
+        self.__labels.labelsInputs('Nome: ', camada, 0.5, self.y1, CENTER)
+        self.__labels.labelsInputs('Profissão: ', camada, 0.5, self.y2, CENTER)
 
         nome = self.input(camada, self.d, self.a)
         profissao = self.input(camada, self.d, self.b)
 
     def criarInputsContato(self, camada):
-        self.__labels.labelsInputs('Celular: ', camada, 0.14, self.y1, CENTER)
-        self.__labels.labelsInputs('E-mail: ', camada, 0.14, self.y2, CENTER)
-        self.__labels.labelsInputs('Endereço: ', camada, 0.19, self.y3, CENTER)
+        self.__labels.labelsInputs('Celular: ', camada, 0.5, self.y1, CENTER)
+        self.__labels.labelsInputs('E-mail: ', camada, 0.5, self.y2, CENTER)
+        self.__labels.labelsInputs('Endereço: ', camada, 0.5, self.y3, CENTER)
 
         celular = self.input(camada, self.d, self.a)
         email = self.input(camada, self.d, self.b)
         endereco = self.input(camada, self.d, self.c)
 
     def criarInputsPessoais(self, camada):
-        self.__labels.labelsInputs('Data de Nascimento: ', camada, 0.33, self.y1, CENTER)
-        self.__labels.labelsInputs('Estado Cívil: ', camada, 0.21, self.y2, CENTER)
-        self.__labels.labelsInputs('Nacionalidade: ', camada, 0.25, self.y3, CENTER)
+        self.__labels.labelsInputs('Data de Nascimento: ', camada, 0.5, self.y1, CENTER)
+        self.__labels.labelsInputs('Estado Cívil: ', camada, 0.5, self.y2, CENTER)
+        self.__labels.labelsInputs('Nacionalidade: ', camada, 0.5, self.y3, CENTER)
 
         nasc = self.input(camada, self.d, self.a)
         eCivil = self.input(camada, self.d, self.b)
         nacionalidade = self.input(camada, self.d, self.c)
 
     def criarInputsRedes(self, camada):
-        self.__labels.labelsInputs('Facebook: ', camada, 0.19, self.y1, CENTER)
-        self.__labels.labelsInputs('Instagram: ', camada, 0.19, self.y2, CENTER)
-        self.__labels.labelsInputs('Linkedin: ', camada, 0.17, self.y3, CENTER)
+        self.__labels.labelsInputs('Facebook: ', camada, 0.5, self.y1, CENTER)
+        self.__labels.labelsInputs('Instagram: ', camada, 0.5, self.y2, CENTER)
+        self.__labels.labelsInputs('Linkedin: ', camada, 0.5, self.y3, CENTER)
 
         face = self.input(camada, self.d, self.a)
         insta = self.input(camada, self.d, self.b)
