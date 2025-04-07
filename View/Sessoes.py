@@ -32,6 +32,7 @@ class Sessoes(SessoesAbstrata):
 
         self.__redes = self.sessao(camada,255, 227)
         self.__redes.place(relx=0.874, rely=0.22, anchor=tk.CENTER)
+        self.__inputs.criarInputsRedes(self.__redes)
 
         self.__cursos = self.sessao(camada,216, 342)
         self.__cursos.place(relx=0.1095, rely=0.68, anchor=tk.CENTER)

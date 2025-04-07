@@ -51,4 +51,18 @@ class Inputs(InputsABC):
 
         nacionalidade = self.input(camada)
         nacionalidade.place(relx= 0.37, rely= 0.87, anchor=CENTER)
+
+    def criarInputsRedes(self, camada):
+        self.__labels.labelsInputs('Facebook: ', camada, 0.19, 0.12, CENTER)
+        self.__labels.labelsInputs('Instagram: ', camada, 0.19, 0.42, CENTER)
+        self.__labels.labelsInputs('Linkedin: ', camada, 0.17, 0.72, CENTER)
+
+        face = self.input(camada)
+        face.place(relx= 0.37, rely= 0.27, anchor=CENTER)
+
+        insta = self.input(camada)
+        insta.place(relx= 0.37, rely= 0.57, anchor=CENTER)
+
+        linkedin = self.input(camada)
+        linkedin.place(relx= 0.37, rely= 0.87, anchor=CENTER)
     

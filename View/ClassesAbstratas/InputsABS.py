@@ -18,3 +18,7 @@ class InputsABC(ABC):
     @abstractmethod
     def criarInputsPessoais(self, camada):
         pass
+
+    @abstractmethod
+    def criarInputsRedes(self, camada):
+        pass
