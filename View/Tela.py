@@ -21,6 +21,8 @@ class Tela:
 
     def run(self):
         self.tk.mainloop()
+
+
 labels = Labels()
 inputs = Inputs(labels)
 

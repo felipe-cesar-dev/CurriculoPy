@@ -52,6 +52,7 @@ class Sessoes(SessoesAbstrata):
 
         self.__sobreMim = self.sessao(camada,216, 342)
         self.__sobreMim.place(relx=0.89, rely=0.68, anchor=tk.CENTER)
+        self.__inputs.criarInputsTexto(self.__sobreMim)
 
     def sessao(self, camada, w, h):
         sessao = tk.Canvas(camada, width=w, height=h, bg='#ffffff', highlightthickness=0)

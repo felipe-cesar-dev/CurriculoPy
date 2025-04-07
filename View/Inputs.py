@@ -9,16 +9,17 @@ class Inputs(InputsABC):
     def __init__(self, labels: LabelsAbstrata):
         super().__init__()
         self.__labels = labels
-        self.a = 0.17
-        self.b = 0.43
-        self.c = 0.69
+        self.a = 0.21
+        self.b = 0.47
+        self.c = 0.73
         self.d = 0.37
-        self.y1 = 0.06
-        self.y2 = 0.307
-        self.y3 = 0.578
+        self.y1 = 0.11
+        self.y2 = 0.37
+        self.y3 = 0.63
 
-    def input(self, camada):
+    def input(self, camada, a, b):
         input = tk.Entry(camada, bg='light gray', font=("Arial", 14), width=15)
+        input.place(relx=a, rely=b, anchor=CENTER)
         return input
 
     def criarInputsDados(self, camada):
@@ -85,3 +86,7 @@ class Inputs(InputsABC):
         a4.place(relx= valores.get('x1'), rely= valores.get('y4'), anchor=CENTER)
         a5 = self.input(camada)
         a5.place(relx= valores.get('x1'), rely= valores.get('y5'), anchor=CENTER)
+
+    def criarInputsTexto(self, camada):
+        texto = tk.Text(camada,font=("Arial", 12), height=14, width=19, bg='light gray')
+        texto.place(relx=0.09, rely=0.075)
