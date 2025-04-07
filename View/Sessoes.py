@@ -28,6 +28,7 @@ class Sessoes(SessoesAbstrata):
 
         self.__infosPess = self.sessao(camada,255, 227)
         self.__infosPess.place(relx=0.624, rely=0.22, anchor=tk.CENTER)
+        self.__inputs.criarInputsPessoais(self.__infosPess)
 
         self.__redes = self.sessao(camada,255, 227)
         self.__redes.place(relx=0.874, rely=0.22, anchor=tk.CENTER)

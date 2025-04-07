@@ -17,8 +17,10 @@ class Inputs(InputsABC):
     def criarInputsDados(self, camada):
         self.__labels.labelsInputs('Nome: ', camada, 0.14, 0.20, CENTER)
         self.__labels.labelsInputs('Profissão: ', camada, 0.18, 0.50, CENTER)
+
         nome = self.input(camada)
         nome.place(relx= 0.37, rely= 0.35, anchor=CENTER)
+
         profissao = self.input(camada)
         profissao.place(relx= 0.37, rely= 0.65, anchor=CENTER)
 
@@ -35,4 +37,18 @@ class Inputs(InputsABC):
 
         endereco = self.input(camada)
         endereco.place(relx= 0.37, rely= 0.87, anchor=CENTER)
+
+    def criarInputsPessoais(self, camada):
+        self.__labels.labelsInputs('Data de Nascimento: ', camada, 0.33, 0.12, CENTER)
+        self.__labels.labelsInputs('Estado Cívil: ', camada, 0.21, 0.42, CENTER)
+        self.__labels.labelsInputs('Nacionalidade: ', camada, 0.25, 0.72, CENTER)
+
+        nasc = self.input(camada)
+        nasc.place(relx= 0.37, rely= 0.27, anchor=CENTER)
+
+        eCivil = self.input(camada)
+        eCivil.place(relx= 0.37, rely= 0.57, anchor=CENTER)
+
+        nacionalidade = self.input(camada)
+        nacionalidade.place(relx= 0.37, rely= 0.87, anchor=CENTER)
     
