@@ -20,7 +20,7 @@ class Sessoes(SessoesAbstrata):
     def criarSessoes(self, camada):
         self.__dadosPessoais = self.sessao(camada, 255, 227)
         self.__dadosPessoais.place(relx=0.124, rely=0.22, anchor=tk.CENTER)
-        self.__inputs.criarInputsDados(self.__dadosPessoais)
+
 
         self.__infosCtt = self.sessao(camada,255, 227)
         self.__infosCtt.place(relx=0.374, rely=0.22, anchor=tk.CENTER)
@@ -53,6 +53,11 @@ class Sessoes(SessoesAbstrata):
         self.__sobreMim = self.sessao(camada,216, 342)
         self.__sobreMim.place(relx=0.89, rely=0.68, anchor=tk.CENTER)
         self.__inputs.criarInputsTexto(self.__sobreMim)
+
+        self.__inputs.buildInputs(
+            self.__dadosPessoais, self.__infosCtt, self.__infosPess, self.__redes, self.__cursos, self.__conhecimentos,
+            self.__exp, self.__formAcademica, self.__sobreMim
+        )
 
     def sessao(self, camada, w, h):
         sessao = tk.Canvas(camada, width=w, height=h, bg='#ffffff', highlightthickness=0)

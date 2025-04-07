@@ -30,3 +30,7 @@ class InputsABC(ABC):
     @abstractmethod
     def criarInputsTexto(self, camada):
         pass
+
+    @abstractmethod
+    def buildInputs(self,a, b, c, d, e, f, g, h, i):
+        pass

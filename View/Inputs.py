@@ -67,3 +67,14 @@ class Inputs(InputsABC):
     def criarInputsTexto(self, camada):
         texto = tk.Text(camada,font=("Arial", 12), height=14, width=19, bg='light gray')
         texto.place(relx=0.09, rely=0.075)
+
+    def buildInputs(self, a, b, c, d, e, f, g, h, i):
+        self.criarInputsDados(a)
+        self.criarInputsContato(b)
+        self.criarInputsPessoais(c)
+        self.criarInputsRedes(d)
+        self.criarInputsAdicionais(e)
+        self.criarInputsAdicionais(f)
+        self.criarInputsAdicionais(g)
+        self.criarInputsAdicionais(h)
+        self.criarInputsTexto(i)
