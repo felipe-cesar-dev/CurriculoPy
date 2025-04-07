@@ -10,3 +10,7 @@ class InputsABC(ABC):
     @abstractmethod
     def criarInputsDados(self, camada):
         pass
+
+    @abstractmethod
+    def criarInputsContato(self, camada):
+        pass

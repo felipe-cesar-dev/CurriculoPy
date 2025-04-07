@@ -24,6 +24,7 @@ class Sessoes(SessoesAbstrata):
 
         self.__infosCtt = self.sessao(camada,255, 227)
         self.__infosCtt.place(relx=0.374, rely=0.22, anchor=tk.CENTER)
+        self.__inputs.criarInputsContato(self.__infosCtt)
 
         self.__infosPess = self.sessao(camada,255, 227)
         self.__infosPess.place(relx=0.624, rely=0.22, anchor=tk.CENTER)
