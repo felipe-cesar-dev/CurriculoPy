@@ -1,6 +1,6 @@
 import tkinter as tk
 
-from View.BotaoArmazenar import BotaoArmazenar
+from View.Botao import BotaoArmazenar
 from View.Inputs import Inputs
 from View.Labels import Labels
 from View.ClassesAbstratas.LabelsABS import LabelsAbstrata

@@ -5,6 +5,6 @@ class BotaoArmazenar(BotaoABS):
     def __init__(self):
         super().__init__()
 
-    def criarBotao(self, camada):
-        botao = tk.Button(text= 'Salvar', height=1, width=5, font=('Arial', 12), bg='green', fg='white')
+    def criarBotao(self, camada, texto):
+        botao = tk.Button(text= texto, height=1, width=5, font=('Arial', 12), bg='green', fg='white')
         botao.place(in_=camada, relx=0.4, rely=0.85)
