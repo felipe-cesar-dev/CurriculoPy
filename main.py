@@ -5,6 +5,7 @@ from View.Sessoes import Sessoes
 from View.Tela import  Tela
 
 
+
 labels = Labels()
 inputs = Inputs(labels)
 botao = Botao()
