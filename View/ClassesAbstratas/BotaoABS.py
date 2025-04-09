@@ -5,5 +5,5 @@ class BotaoABS(ABC):
         pass
 
     @abstractmethod
-    def criarBotao(self, camada, texto, x, y, h, w):
+    def criarBotao(self, camada, texto, x, y, h, w, funcao):
         pass
