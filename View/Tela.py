@@ -17,8 +17,8 @@ class Tela:
         self.labels = label
         self.sessoes.criarSessoes(self.camada2)
         self.labels.criarLabels(self.camada2)
-        self.botao.criarBotao(self.camada2,'Gerar Currículo', 0.35, 0.95, 1, 13, 'assasas')
-        self.botao.criarBotao(self.camada2, 'Limpar Campos', 0.48, 0.95, 1, 13, 'asasdasdsa')
+        #self.botao.criarBotao(self.camada2,'Gerar Currículo', 0.35, 0.95, 1, 13, 'assasas')
+        #self.botao.criarBotao(self.camada2, 'Limpar Campos', 0.48, 0.95, 1, 13, 'asasdasdsa')
 
     def run(self):
         self.tk.mainloop()
