@@ -1,7 +1,11 @@
 import sqlite3
 
-class SQLiteDB:
+from Model.ArmazenamentoABS import SQLiteDBABS
+
+
+class SQLiteDB(SQLiteDBABS):
     def __init__(self, db_name):
+        super().__init__(db_name)
         self.conn = sqlite3.connect(db_name)
         self.cursor = self.conn.cursor()
 

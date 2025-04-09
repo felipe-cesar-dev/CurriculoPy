@@ -32,14 +32,6 @@ class Sessoes(SessoesAbstrata):
         self.__formAcademica = self.sessao(camada,216, 342, 0.695, self.__y2)
         self.__sobreMim = self.sessao(camada,216, 342, 0.89, self.__y2)
 
-        todasSessoes = [
-            self.__dadosPessoais, self.__infosCtt,  self.__infosPess, self.__redes, self.__cursos, self.__conhecimentos,
-            self.__exp, self.__formAcademica, self.__sobreMim
-        ]
-
-        for i in range(len(todasSessoes)):
-            self.__botao.criarBotao(todasSessoes[i], 'Salvar', 0.4, 0.85, 1, 5)
-
         self.__inputs.buildInputs(
             self.__dadosPessoais, self.__infosCtt, self.__infosPess, self.__redes, self.__cursos, self.__conhecimentos,
             self.__exp, self.__formAcademica, self.__sobreMim

@@ -8,5 +8,5 @@ class Botao(BotaoABS):
         self.__funcao = funcao
 
     def criarBotao(self, camada, texto, x, y, h, w, funcao):
-        botao = tk.Button(text= texto, height=h, width=w, font=('Arial', 12), bg='green', fg='white')
+        botao = tk.Button(text= texto, height=h, width=w, font=('Arial', 12), bg='green', fg='white', command=funcao)
         botao.place(in_=camada, relx=x, rely=y)
