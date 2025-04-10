@@ -2,7 +2,6 @@ from tkinter.constants import CENTER
 from View.ClassesAbstratas.InputsABS import InputsABC
 import tkinter as tk
 from View.ClassesAbstratas.LabelsABS import LabelsAbstrata
-import sqlite3 as sq
 
 class Inputs(InputsABC):
     def __init__(self, labels: LabelsAbstrata):
@@ -27,20 +26,7 @@ class Inputs(InputsABC):
         self.__labels.labelsInputs('Profissão: ', camada, 0.5, self.y2, CENTER)
         nome = self.input(camada, self.d, self.a)
         profissao = self.input(camada, self.d, self.b)
-
-        def armazenarDados():
-            nomee = nome.get()
-            self.__nome.append(nomee)
-            print(self.__nome[0])
-            profissaoo = profissao.get()
-            conn = sq.connect('curriculo.db')
-            cursor = conn.cursor()
-            cursor.execute("INSERT INTO pessoas (Nome) VALUES (?)", (self.__nome[0],))
-            cursor.execute("UPDATE pessoas SET Profissao = ? WHERE Nome = ?", (profissaoo, self.__nome[0]))
-            conn.commit()
-            conn.close()
-
-        botao = tk.Button(camada, text="Salvar Dados", command=armazenarDados)
+        botao = tk.Button(camada, text="Salvar Dados")
         botao.place(relx=0.35, rely=0.85)
 
     def criarInputsContato(self, camada):
