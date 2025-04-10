@@ -9,7 +9,7 @@ class TratarDadosABS(ABC):
         pass
 
     @abstractmethod
-    def salvar_profissao(self, nome, profissao):
+    def salvar_dado(self, nome, dado, coluna):
         pass
 
     @abstractmethod

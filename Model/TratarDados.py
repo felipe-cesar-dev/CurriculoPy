@@ -15,10 +15,10 @@ class TratarDados(TratarDadosABS):
         conn.commit()
         conn.close()
 
-    def salvar_profissao(self, nome, profissao):
+    def salvar_dado(self, nome, dado, coluna):
         conn = sq.connect('curriculo.db')
         cursor = conn.cursor()
-        cursor.execute("UPDATE pessoas SET Profissao = ? WHERE Nome = ?", (profissao, nome))
+        cursor.execute(f"UPDATE pessoas SET {coluna} = ? WHERE Nome = ?", (dado, nome))
         conn.commit()
         conn.close()
 
