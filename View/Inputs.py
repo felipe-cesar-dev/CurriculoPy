@@ -8,6 +8,7 @@ class Inputs(InputsABC):
     def __init__(self, labels: LabelsAbstrata):
         super().__init__()
         self.__labels = labels
+        self.__nome = []
         self.a = 0.21
         self.b = 0.47
         self.c = 0.73
@@ -29,11 +30,13 @@ class Inputs(InputsABC):
 
         def armazenarDados():
             nomee = nome.get()
+            self.__nome.append(nomee)
+            print(self.__nome[0])
             profissaoo = profissao.get()
             conn = sq.connect('curriculo.db')
             cursor = conn.cursor()
-            cursor.execute("INSERT INTO pessoas (Nome) VALUES (?)", (nomee,))
-            cursor.execute("UPDATE pessoas SET Profissao = ? WHERE Nome = ?", (profissaoo, nomee))
+            cursor.execute("INSERT INTO pessoas (Nome) VALUES (?)", (self.__nome[0],))
+            cursor.execute("UPDATE pessoas SET Profissao = ? WHERE Nome = ?", (profissaoo, self.__nome[0]))
             conn.commit()
             conn.close()
 
