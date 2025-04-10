@@ -7,6 +7,11 @@ class TratarDadosABS(ABC):
     @abstractmethod
     def salvar_nome(self, nome):
         pass
+
+    @abstractmethod
+    def salvar_profissao(self, nome, profissao):
+        pass
+
     @abstractmethod
     def limparTodosDados(self):
         pass

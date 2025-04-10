@@ -15,6 +15,13 @@ class TratarDados(TratarDadosABS):
         conn.commit()
         conn.close()
 
+    def salvar_profissao(self, nome, profissao):
+        conn = sq.connect('curriculo.db')
+        cursor = conn.cursor()
+        cursor.execute("UPDATE pessoas SET Profissao = ? WHERE Nome = ?", (profissao, nome))
+        conn.commit()
+        conn.close()
+
     def limparTodosDados(self):
         conn = sq.connect('curriculo.db')
         cursor = conn.cursor()
