@@ -8,6 +8,7 @@ from View.Tela import  Tela
 
 
 tratar = TratarDados()
+tratar.limparTodosDados()
 labels = Labels()
 inputs = Inputs(labels, tratar)
 botao = Botao()
