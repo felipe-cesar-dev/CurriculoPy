@@ -31,7 +31,6 @@ class Inputs(InputsABC):
         self.__labels.labelsInputs('Profissão: ', camada, 0.5, self.y2, CENTER)
         nome = self.input(camada, self.d, self.a)
         profissao = self.input(camada, self.d, self.b)
-        self.__nome.append(nome.get())
 
         def salvar_dados():
             self.__nome.clear()
