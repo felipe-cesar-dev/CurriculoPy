@@ -40,9 +40,8 @@ class Inputs(InputsABC):
             conn.commit()
             conn.close()
 
-
         botao = tk.Button(camada, text="Salvar Dados", command=armazenarDados)
-        botao.place(relx=0.9, rely=0.9)
+        botao.place(relx=0.35, rely=0.85)
 
     def criarInputsContato(self, camada):
         self.__labels.labelsInputs('Celular: ', camada, 0.5, self.y1, CENTER)
