@@ -1,13 +1,12 @@
 from tkinter.constants import CENTER
-from Model.TratarDadosABS import TratarDadosABS
-from View.Botao import Botao
+from Controler.ControleTratarDadosABS import ControleTratarDadosABS
 from View.ClassesAbstratas.BotaoABS import BotaoABS
 from View.ClassesAbstratas.InputsABS import InputsABC
 import tkinter as tk
 from View.ClassesAbstratas.LabelsABS import LabelsAbstrata
 
 class Inputs(InputsABC):
-    def __init__(self, labels: LabelsAbstrata, tratar: TratarDadosABS, botao : BotaoABS):
+    def __init__(self, labels: LabelsAbstrata, tratar: ControleTratarDadosABS, botao: BotaoABS):
         super().__init__()
         self.__labels = labels
         self.__nome = []
@@ -21,6 +20,7 @@ class Inputs(InputsABC):
         self.y2 = 0.37
         self.y3 = 0.63
 
+
     def input(self, camada, a, b):
         input = tk.Entry(camada, bg='light gray', font=("Arial", 14), width=15)
         input.place(relx=a, rely=b, anchor=CENTER)
@@ -31,13 +31,9 @@ class Inputs(InputsABC):
         self.__labels.labelsInputs('Profissão: ', camada, 0.5, self.y2, CENTER)
         nome = self.input(camada, self.d, self.a)
         profissao = self.input(camada, self.d, self.b)
-
-        def salvar_dados():
-            self.__nome.clear()
-            self.__nome.append(nome.get())
-            self.__tratar.salvar_nome(self.__nome[0])
-
-        self.__botao.criarBotao(camada, 'Salvar', 0.4, 0.83, 1, 5, salvar_dados)
+        self.__botao.criarBotao(
+            camada, 'Salvar', 0.4, 0.83, 1, 5, lambda: self.__tratar.salvar_dados(self.__nome, nome)
+        )
 
     def criarInputsContato(self, camada):
         self.__labels.labelsInputs('Celular: ', camada, 0.5, self.y1, CENTER)

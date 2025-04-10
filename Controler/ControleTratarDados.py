@@ -9,4 +9,5 @@ class ControleTratarDados(ControleTratarDadosABS):
     def salvar_dados(self, array, nome):
         array.clear()
         array.append(nome.get())
+        print(array)
         self.__tratar.salvar_nome(array[0])

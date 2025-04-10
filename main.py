@@ -1,3 +1,4 @@
+from Controler.ControleTratarDados import ControleTratarDados
 from Model.TratarDados import TratarDados
 from View.Botao import Botao
 from View.Inputs import Inputs
@@ -8,12 +9,11 @@ from View.Tela import  Tela
 
 
 tratar = TratarDados()
+controle = ControleTratarDados(tratar)
 tratar.limparTodosDados()
 labels = Labels()
 botao = Botao()
-inputs = Inputs(labels, tratar, botao)
-
-
+inputs = Inputs(labels, controle, botao)
 
 sessoes = Sessoes(inputs, botao)
 tela = Tela(sessoes, labels, botao)
