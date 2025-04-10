@@ -1,5 +1,6 @@
 from tkinter.constants import CENTER
 from Model.TratarDadosABS import TratarDadosABS
+from View.Botao import Botao
 from View.ClassesAbstratas.InputsABS import InputsABC
 import tkinter as tk
 from View.ClassesAbstratas.LabelsABS import LabelsAbstrata
@@ -33,6 +34,10 @@ class Inputs(InputsABC):
             self.__nome.clear()
             self.__nome.append(nome.get())
             self.__tratar.salvar_nome(self.__nome[0])
+
+
+        botao = Botao()
+        botao.criarBotao(camada, 'Salvar', 0.5, 0.5, 3, 4, salvar_dados)
 
         botao = tk.Button(camada, text="Salvar Dados", command=salvar_dados)
         botao.place(relx=0.35, rely=0.85)
