@@ -1,13 +1,15 @@
 from tkinter.constants import CENTER
+from Model.TratarDadosABS import TratarDadosABS
 from View.ClassesAbstratas.InputsABS import InputsABC
 import tkinter as tk
 from View.ClassesAbstratas.LabelsABS import LabelsAbstrata
 
 class Inputs(InputsABC):
-    def __init__(self, labels: LabelsAbstrata):
+    def __init__(self, labels: LabelsAbstrata, tratar: TratarDadosABS):
         super().__init__()
         self.__labels = labels
         self.__nome = []
+        self.__tratar = tratar
         self.a = 0.21
         self.b = 0.47
         self.c = 0.73
@@ -26,7 +28,13 @@ class Inputs(InputsABC):
         self.__labels.labelsInputs('Profissão: ', camada, 0.5, self.y2, CENTER)
         nome = self.input(camada, self.d, self.a)
         profissao = self.input(camada, self.d, self.b)
-        botao = tk.Button(camada, text="Salvar Dados")
+
+        def salvar_dados():
+            nomee = nome.get()
+            self.__nome.append(nomee)
+            self.__tratar.salvar_nome(self.__nome[0])
+
+        botao = tk.Button(camada, text="Salvar Dados", command=salvar_dados)
         botao.place(relx=0.35, rely=0.85)
 
     def criarInputsContato(self, camada):
