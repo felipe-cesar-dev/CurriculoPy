@@ -30,12 +30,9 @@ class Inputs(InputsABC):
         profissao = self.input(camada, self.d, self.b)
 
         def salvar_dados():
-            nomee = nome.get()
-            profissaoo = profissao.get()
             self.__nome.clear()
-            self.__nome.append(nomee)
+            self.__nome.append(nome.get())
             self.__tratar.salvar_nome(self.__nome[0])
-            self.__tratar.salvar_profissao(self.__nome[0], profissaoo)
 
         botao = tk.Button(camada, text="Salvar Dados", command=salvar_dados)
         botao.place(relx=0.35, rely=0.85)
