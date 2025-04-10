@@ -10,8 +10,9 @@ from View.Tela import  Tela
 tratar = TratarDados()
 tratar.limparTodosDados()
 labels = Labels()
-inputs = Inputs(labels, tratar)
 botao = Botao()
+inputs = Inputs(labels, tratar, botao)
+
 
 
 sessoes = Sessoes(inputs, botao)
