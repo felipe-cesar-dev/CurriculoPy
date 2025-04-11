@@ -27,8 +27,8 @@ class Inputs(InputsABC):
         return input
 
     def criarInputsDados(self, camada):
-        self.__labels.labelsInputs('Nome: ', camada, 0.5, self.y1, CENTER)
-        self.__labels.labelsInputs('Profissão: ', camada, 0.5, self.y2, CENTER)
+        self.__labels.labelsInputs('Nome: ', camada, self.d, self.y1, CENTER)
+        self.__labels.labelsInputs('Profissão: ', camada, self.d, self.y2, CENTER)
         nome = self.input(camada, self.d, self.a)
         profissao = self.input(camada, self.d, self.b)
         self.__botao.criarBotao(
@@ -39,9 +39,9 @@ class Inputs(InputsABC):
         )
 
     def criarInputsContato(self, camada):
-        self.__labels.labelsInputs('Celular: ', camada, 0.5, self.y1, CENTER)
-        self.__labels.labelsInputs('E-mail: ', camada, 0.5, self.y2, CENTER)
-        self.__labels.labelsInputs('Endereço: ', camada, 0.5, self.y3, CENTER)
+        self.__labels.labelsInputs('Celular: ', camada, self.d, self.y1, CENTER)
+        self.__labels.labelsInputs('E-mail: ', camada, self.d, self.y2, CENTER)
+        self.__labels.labelsInputs('Endereço: ', camada, self.d, self.y3, CENTER)
 
         celular = self.input(camada, self.d, self.a)
         email = self.input(camada, self.d, self.b)
@@ -55,9 +55,9 @@ class Inputs(InputsABC):
         )
 
     def criarInputsPessoais(self, camada):
-        self.__labels.labelsInputs('Data de Nascimento: ', camada, 0.5, self.y1, CENTER)
-        self.__labels.labelsInputs('Estado Cívil: ', camada, 0.5, self.y2, CENTER)
-        self.__labels.labelsInputs('Nacionalidade: ', camada, 0.5, self.y3, CENTER)
+        self.__labels.labelsInputs('Data de Nascimento: ', camada, self.d, self.y1, CENTER)
+        self.__labels.labelsInputs('Estado Cívil: ', camada, self.d, self.y2, CENTER)
+        self.__labels.labelsInputs('Nacionalidade: ', camada, self.d, self.y3, CENTER)
 
         nasc = self.input(camada, self.d, self.a)
         eCivil = self.input(camada, self.d, self.b)
@@ -72,9 +72,9 @@ class Inputs(InputsABC):
         )
 
     def criarInputsRedes(self, camada):
-        self.__labels.labelsInputs('Facebook: ', camada, 0.5, self.y1, CENTER)
-        self.__labels.labelsInputs('Instagram: ', camada, 0.5, self.y2, CENTER)
-        self.__labels.labelsInputs('Linkedin: ', camada, 0.5, self.y3, CENTER)
+        self.__labels.labelsInputs('Facebook: ', camada, self.d, self.y1, CENTER)
+        self.__labels.labelsInputs('Instagram: ', camada, self.d, self.y2, CENTER)
+        self.__labels.labelsInputs('Linkedin: ', camada, self.d, self.y3, CENTER)
 
         face = self.input(camada, self.d, self.a)
         insta = self.input(camada, self.d, self.b)
