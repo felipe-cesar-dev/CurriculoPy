@@ -32,7 +32,9 @@ class Inputs(InputsABC):
         nome = self.input(camada, self.d, self.a)
         profissao = self.input(camada, self.d, self.b)
         self.__botao.criarBotao(
-            camada, 'Salvar', 0.4, 0.83, 1, 5, lambda: self.__tratar.salvar_dados(self.__nome, nome)
+            camada, 'Salvar', 0.4, 0.83, 1, 5, lambda: [
+                self.__tratar.salvar_nome(self.__nome, nome), self.__tratar.salvar_dados(self.__nome, profissao,'Profissao')
+            ]
         )
 
     def criarInputsContato(self, camada):

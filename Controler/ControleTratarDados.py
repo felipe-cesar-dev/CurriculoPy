@@ -6,8 +6,14 @@ class ControleTratarDados(ControleTratarDadosABS):
         super().__init__()
         self.__tratar = tratar
 
-    def salvar_dados(self, array, nome):
+    def salvar_nome(self, array, nome):
         array.clear()
         array.append(nome.get())
         print(array)
         self.__tratar.salvar_nome(array[0])
+
+    def salvar_dados(self, nome, dado, coluna):
+        colunaNome = nome[0]
+        data = dado.get()
+        self.__tratar.salvar_dado(colunaNome, data, coluna)
+

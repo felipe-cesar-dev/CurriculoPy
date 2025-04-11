@@ -5,5 +5,9 @@ class ControleTratarDadosABS(ABC):
         pass
 
     @abstractmethod
-    def salvar_dados(self, array, nome):
+    def salvar_nome(self, array, nome):
+        pass
+
+    @abstractmethod
+    def salvar_dados(self, nome, dado, coluna):
         pass
