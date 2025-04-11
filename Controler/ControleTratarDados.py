@@ -11,6 +11,7 @@ class ControleTratarDados(ControleTratarDadosABS):
         array.append(nome.get())
         print(array)
         self.__tratar.salvar_nome(array[0])
+        return array.append(nome.get())
 
     def salvar_dados(self, nome, dado, coluna):
         colunaNome = nome[0]

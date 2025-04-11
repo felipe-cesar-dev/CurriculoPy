@@ -33,7 +33,8 @@ class Inputs(InputsABC):
         profissao = self.input(camada, self.d, self.b)
         self.__botao.criarBotao(
             camada, 'Salvar', 0.4, 0.83, 1, 5, lambda: [
-                self.__tratar.salvar_nome(self.__nome, nome), self.__tratar.salvar_dados(self.__nome, profissao,'Profissao')
+                self.__tratar.salvar_nome(self.__nome, nome),
+                self.__tratar.salvar_dados(self.__nome, profissao,'Profissao')
             ]
         )
 
@@ -45,6 +46,13 @@ class Inputs(InputsABC):
         celular = self.input(camada, self.d, self.a)
         email = self.input(camada, self.d, self.b)
         endereco = self.input(camada, self.d, self.c)
+        self.__botao.criarBotao(
+            camada, 'Salvar', 0.4, 0.83, 1, 5, lambda: [
+                self.__tratar.salvar_dados(self.__nome, celular, 'Celular'),
+                self.__tratar.salvar_dados(self.__nome, email, 'Email'),
+                self.__tratar.salvar_dados(self.__nome, endereco, 'Endereco')
+            ]
+        )
 
     def criarInputsPessoais(self, camada):
         self.__labels.labelsInputs('Data de Nascimento: ', camada, 0.5, self.y1, CENTER)
@@ -54,6 +62,14 @@ class Inputs(InputsABC):
         nasc = self.input(camada, self.d, self.a)
         eCivil = self.input(camada, self.d, self.b)
         nacionalidade = self.input(camada, self.d, self.c)
+
+        self.__botao.criarBotao(
+            camada, 'Salvar', 0.4, 0.83, 1, 5, lambda: [
+                self.__tratar.salvar_dados(self.__nome, nasc, 'DataNascimento'),
+                self.__tratar.salvar_dados(self.__nome, eCivil, 'EstadoCivil'),
+                self.__tratar.salvar_dados(self.__nome, nacionalidade, 'Nacionalidade')
+            ]
+        )
 
     def criarInputsRedes(self, camada):
         self.__labels.labelsInputs('Facebook: ', camada, 0.5, self.y1, CENTER)
