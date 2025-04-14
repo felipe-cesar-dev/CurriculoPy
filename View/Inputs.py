@@ -78,9 +78,7 @@ class Inputs(InputsABC):
         face = self.input(camada, self.d, self.a)
         insta = self.input(camada, self.d, self.b)
         linkedin = self.input(camada, self.d, self.c)
-        self.__botao.criarBotao(
-            camada,
-            'Salvar',0.4,0.83,1,5, lambda: [
+        self.__botao.criarBotao(camada,'Salvar',0.4,0.83,1,5, lambda: [
                 self.__tratar.salvar_dado_estrangeiro(face, self.__nome, 'Facebook', 'redes'),
                 self.__tratar.salvar_dado_estrangeiro(insta, self.__nome, 'Instagram', 'redes'),
                 self.__tratar.salvar_dado_estrangeiro(linkedin, self.__nome, 'Linkedin', 'redes')
@@ -91,9 +89,17 @@ class Inputs(InputsABC):
         valores = {'x1': 0.5, 'y1': 0.12, 'y2': 0.28, 'y3': 0.44, 'y4': 0.60, 'y5': 0.76}
         a1 = self.input(camada, valores.get('x1'), valores.get('y1'))
         a2 = self.input(camada, valores.get('x1'), valores.get('y2'))
-        a3 = self.input(camada,valores.get('x1'), valores.get('y3'))
+        a3 = self.input(camada, valores.get('x1'), valores.get('y3'))
         a4 = self.input(camada, valores.get('x1'), valores.get('y4'))
         a5 = self.input(camada, valores.get('x1'), valores.get('y5'))
+        colunas = ['Dado1', 'Dado2', 'Dado3', 'Dado4', 'Dado5',]
+        dados = [a1, a2, a3, a4, a5]
+        self.__botao.criarBotao(camada,'Salvar',0.4,0.83,1,5, lambda : self.salvar_dados(colunas, dados))
+
+    def salvar_dados(self, cursos, dados):
+        if self.__nome:
+            for i in range(len(cursos)):
+                self.__tratar.salvar_dado_estrangeiro(dados[i], self.__nome, cursos[i], 'cursos')
 
     def criarInputsTexto(self, camada):
         texto = tk.Text(camada,font=("Arial", 12), height=14, width=19, bg='light gray')
