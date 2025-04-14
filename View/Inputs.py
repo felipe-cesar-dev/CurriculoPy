@@ -4,7 +4,6 @@ from View.ClassesAbstratas.BotaoABS import BotaoABS
 from View.ClassesAbstratas.InputsABS import InputsABC
 import tkinter as tk
 from View.ClassesAbstratas.LabelsABS import LabelsAbstrata
-import sqlite3 as sq
 
 class Inputs(InputsABC):
     def __init__(self, labels: LabelsAbstrata, tratar: ControleTratarDadosABS, botao: BotaoABS):
@@ -85,7 +84,7 @@ class Inputs(InputsABC):
             ]
         )
 
-    def criarInputsAdicionais(self, camada):
+    def criarInputsAdicionais(self, camada, tabela):
         valores = {'x1': 0.5, 'y1': 0.12, 'y2': 0.28, 'y3': 0.44, 'y4': 0.60, 'y5': 0.76}
         a1 = self.input(camada, valores.get('x1'), valores.get('y1'))
         a2 = self.input(camada, valores.get('x1'), valores.get('y2'))
@@ -94,12 +93,12 @@ class Inputs(InputsABC):
         a5 = self.input(camada, valores.get('x1'), valores.get('y5'))
         colunas = ['Dado1', 'Dado2', 'Dado3', 'Dado4', 'Dado5',]
         dados = [a1, a2, a3, a4, a5]
-        self.__botao.criarBotao(camada,'Salvar',0.4,0.83,1,5, lambda : self.salvar_dados(colunas, dados))
+        self.__botao.criarBotao(camada,'Salvar',0.4,0.83,1,5, lambda : self.salvar_dados(colunas, dados, tabela))
 
-    def salvar_dados(self, colunas, dados):
+    def salvar_dados(self, colunas, dados, tabela):
         if self.__nome:
             for i in range(len(colunas)):
-                self.__tratar.salvar_dado_estrangeiro(dados[i], self.__nome, colunas[i], 'cursos')
+                self.__tratar.salvar_dado_estrangeiro(dados[i], self.__nome, colunas[i], tabela)
 
     def criarInputsTexto(self, camada):
         texto = tk.Text(camada,font=("Arial", 12), height=14, width=19, bg='light gray')
@@ -110,8 +109,8 @@ class Inputs(InputsABC):
         self.criarInputsContato(b)
         self.criarInputsPessoais(c)
         self.criarInputsRedes(d)
-        self.criarInputsAdicionais(e)
-        self.criarInputsAdicionais(f)
-        self.criarInputsAdicionais(g)
-        self.criarInputsAdicionais(h)
+        self.criarInputsAdicionais(e,'cursos')
+        self.criarInputsAdicionais(f, 'conhecimentos')
+        self.criarInputsAdicionais(g, 'experiencias')
+        self.criarInputsAdicionais(h, 'formacoes')
         self.criarInputsTexto(i)

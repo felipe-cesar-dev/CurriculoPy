@@ -24,7 +24,7 @@ class InputsABC(ABC):
         pass
 
     @abstractmethod
-    def criarInputsAdicionais(self, camada):
+    def criarInputsAdicionais(self, camada, tabela):
         pass
 
     @abstractmethod
