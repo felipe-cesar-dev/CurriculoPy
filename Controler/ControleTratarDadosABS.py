@@ -13,5 +13,5 @@ class ControleTratarDadosABS(ABC):
         pass
 
     @abstractmethod
-    def salvar_dado_estrangeiro(self, rede, nome, coluna):
+    def salvar_dado_estrangeiro(self, dado, nome, coluna):
         pass

@@ -18,8 +18,8 @@ class ControleTratarDados(ControleTratarDadosABS):
         data = dado.get()
         self.__tratar.salvar_dado(colunaNome, data, coluna)
 
-    def salvar_dado_estrangeiro(self, rede, nome, coluna):
-        capturaRede = rede.get()
+    def salvar_dado_estrangeiro(self, dado, nome, coluna):
+        capturaRede = dado.get()
         pessoa_nome = nome[0]
         self.__tratar.salvar_dado_estrangeiro(capturaRede, pessoa_nome, coluna)
 
