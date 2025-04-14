@@ -96,10 +96,10 @@ class Inputs(InputsABC):
         dados = [a1, a2, a3, a4, a5]
         self.__botao.criarBotao(camada,'Salvar',0.4,0.83,1,5, lambda : self.salvar_dados(colunas, dados))
 
-    def salvar_dados(self, cursos, dados):
+    def salvar_dados(self, colunas, dados):
         if self.__nome:
-            for i in range(len(cursos)):
-                self.__tratar.salvar_dado_estrangeiro(dados[i], self.__nome, cursos[i], 'cursos')
+            for i in range(len(colunas)):
+                self.__tratar.salvar_dado_estrangeiro(dados[i], self.__nome, colunas[i], 'cursos')
 
     def criarInputsTexto(self, camada):
         texto = tk.Text(camada,font=("Arial", 12), height=14, width=19, bg='light gray')
