@@ -11,3 +11,7 @@ class ControleTratarDadosABS(ABC):
     @abstractmethod
     def salvar_dados(self, nome, dado, coluna):
         pass
+
+    @abstractmethod
+    def salvar_rede(self, rede, nome, coluna):
+        pass

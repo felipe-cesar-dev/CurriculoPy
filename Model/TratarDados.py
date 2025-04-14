@@ -22,9 +22,19 @@ class TratarDados(TratarDadosABS):
         conn.commit()
         conn.close()
 
+    def salvar_rede(self, rede, nome, coluna):
+        conn = sq.connect('curriculo.db')
+        cursor = conn.cursor()
+        cursor.execute(f"UPDATE redes SET {coluna} = ? WHERE pessoa_nome = ?", (rede, nome))
+        if cursor.rowcount == 0:
+            cursor.execute(f"INSERT INTO redes (pessoa_nome, {coluna}) VALUES (?, ?)", (nome, rede))
+        conn.commit()
+        conn.close()
+
     def limparTodosDados(self):
         conn = sq.connect('curriculo.db')
         cursor = conn.cursor()
         cursor.execute("DELETE FROM pessoas;")
+        cursor.execute("DELETE FROM redes")
         conn.commit()
         conn.close()

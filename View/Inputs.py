@@ -4,6 +4,7 @@ from View.ClassesAbstratas.BotaoABS import BotaoABS
 from View.ClassesAbstratas.InputsABS import InputsABC
 import tkinter as tk
 from View.ClassesAbstratas.LabelsABS import LabelsAbstrata
+import sqlite3 as sq
 
 class Inputs(InputsABC):
     def __init__(self, labels: LabelsAbstrata, tratar: ControleTratarDadosABS, botao: BotaoABS):
@@ -74,10 +75,17 @@ class Inputs(InputsABC):
         self.__labels.labelsInputs('Facebook: ', camada, self.d, self.y1, CENTER)
         self.__labels.labelsInputs('Instagram: ', camada, self.d, self.y2, CENTER)
         self.__labels.labelsInputs('Linkedin: ', camada, self.d, self.y3, CENTER)
-
         face = self.input(camada, self.d, self.a)
         insta = self.input(camada, self.d, self.b)
         linkedin = self.input(camada, self.d, self.c)
+        self.__botao.criarBotao(
+            camada,
+            'Salvar',0.4,0.83,1,5, lambda: [
+                self.__tratar.salvar_rede(face, self.__nome, 'Facebook'),
+                self.__tratar.salvar_rede(insta, self.__nome, 'Instagram'),
+                self.__tratar.salvar_rede(linkedin, self.__nome, 'Linkedin')
+            ]
+        )
 
     def criarInputsAdicionais(self, camada):
         valores = {'x1': 0.5, 'y1': 0.12, 'y2': 0.28, 'y3': 0.44, 'y4': 0.60, 'y5': 0.76}

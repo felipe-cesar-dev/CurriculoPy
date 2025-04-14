@@ -13,6 +13,10 @@ class TratarDadosABS(ABC):
         pass
 
     @abstractmethod
+    def salvar_rede(self, rede, nome, coluna):
+        pass
+
+    @abstractmethod
     def limparTodosDados(self):
         pass
 
