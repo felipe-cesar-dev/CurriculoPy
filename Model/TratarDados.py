@@ -22,7 +22,7 @@ class TratarDados(TratarDadosABS):
         conn.commit()
         conn.close()
 
-    def salvar_rede(self, rede, nome, coluna):
+    def salvar_dado_estrangeiro(self, rede, nome, coluna):
         conn = sq.connect('curriculo.db')
         cursor = conn.cursor()
         cursor.execute(f"UPDATE redes SET {coluna} = ? WHERE pessoa_nome = ?", (rede, nome))

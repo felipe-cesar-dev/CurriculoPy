@@ -13,7 +13,7 @@ class TratarDadosABS(ABC):
         pass
 
     @abstractmethod
-    def salvar_rede(self, rede, nome, coluna):
+    def salvar_dado_estrangeiro(self, rede, nome, coluna):
         pass
 
     @abstractmethod
