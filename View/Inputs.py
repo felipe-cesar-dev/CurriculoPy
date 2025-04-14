@@ -20,7 +20,6 @@ class Inputs(InputsABC):
         self.y2 = 0.37
         self.y3 = 0.63
 
-
     def input(self, camada, a, b):
         input = tk.Entry(camada, bg='light gray', font=("Arial", 14), width=15)
         input.place(relx=a, rely=b, anchor=CENTER)
