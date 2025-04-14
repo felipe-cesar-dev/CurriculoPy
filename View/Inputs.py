@@ -81,9 +81,9 @@ class Inputs(InputsABC):
         self.__botao.criarBotao(
             camada,
             'Salvar',0.4,0.83,1,5, lambda: [
-                self.__tratar.salvar_dado_estrangeiro(face, self.__nome, 'Facebook'),
-                self.__tratar.salvar_dado_estrangeiro(insta, self.__nome, 'Instagram'),
-                self.__tratar.salvar_dado_estrangeiro(linkedin, self.__nome, 'Linkedin')
+                self.__tratar.salvar_dado_estrangeiro(face, self.__nome, 'Facebook', 'redes'),
+                self.__tratar.salvar_dado_estrangeiro(insta, self.__nome, 'Instagram', 'redes'),
+                self.__tratar.salvar_dado_estrangeiro(linkedin, self.__nome, 'Linkedin', 'redes')
             ]
         )
 

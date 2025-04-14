@@ -22,12 +22,12 @@ class TratarDados(TratarDadosABS):
         conn.commit()
         conn.close()
 
-    def salvar_dado_estrangeiro(self, dado, nome, coluna):
+    def salvar_dado_estrangeiro(self, dado, nome, coluna, tabela):
         conn = sq.connect('curriculo.db')
         cursor = conn.cursor()
-        cursor.execute(f"UPDATE redes SET {coluna} = ? WHERE pessoa_nome = ?", (dado, nome))
+        cursor.execute(f"UPDATE {tabela} SET {coluna} = ? WHERE pessoa_nome = ?", (dado, nome))
         if cursor.rowcount == 0:
-            cursor.execute(f"INSERT INTO redes (pessoa_nome, {coluna}) VALUES (?, ?)", (nome, dado))
+            cursor.execute(f"INSERT INTO {tabela} (pessoa_nome, {coluna}) VALUES (?, ?)", (nome, dado))
         conn.commit()
         conn.close()
 
