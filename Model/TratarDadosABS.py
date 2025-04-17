@@ -17,6 +17,10 @@ class TratarDadosABS(ABC):
         pass
 
     @abstractmethod
+    def salvar_dados_lista(self, nome, coluna, dados, tabela):
+        pass
+
+    @abstractmethod
     def limparTodosDados(self):
         pass
 

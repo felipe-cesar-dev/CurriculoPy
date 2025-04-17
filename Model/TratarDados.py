@@ -31,6 +31,17 @@ class TratarDados(TratarDadosABS):
         conn.commit()
         conn.close()
 
+    def salvar_dados_lista(self, nome, coluna, dados, tabela):
+        nomeCapturado = nome[0]
+        conn = sq.connect('curriculo.db')
+        cursor = conn.cursor()
+        for i in range(len(coluna)):
+            cursor.execute(f"UPDATE {tabela} SET {coluna[i]} = ? WHERE pessoa_nome = ?", (dados[i].get(), nomeCapturado))
+            if cursor.rowcount == 0:
+                cursor.execute(f"INSERT INTO {tabela} (pessoa_nome, {coluna[i]}) VALUES (?, ?)", (nomeCapturado, dados[i].get()))
+        conn.commit()
+        conn.close()
+
     def limparTodosDados(self):
         conn = sq.connect('curriculo.db')
         cursor = conn.cursor()
