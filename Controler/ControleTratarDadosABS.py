@@ -13,5 +13,9 @@ class ControleTratarDadosABS(ABC):
         pass
 
     @abstractmethod
+    def salvar_dados_lista(self, nome, coluna, dados, tabela):
+        pass
+
+    @abstractmethod
     def salvar_dado_estrangeiro(self, dado, nome, coluna, tabela):
         pass

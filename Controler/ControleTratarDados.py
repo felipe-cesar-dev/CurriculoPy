@@ -1,5 +1,6 @@
 from Controler.ControleTratarDadosABS import ControleTratarDadosABS
 from Model.TratarDadosABS import TratarDadosABS
+import sqlite3 as sq
 
 class ControleTratarDados(ControleTratarDadosABS):
     def __init__(self, tratar: TratarDadosABS):
@@ -23,3 +24,13 @@ class ControleTratarDados(ControleTratarDadosABS):
         pessoa_nome = nome[0]
         self.__tratar.salvar_dado_estrangeiro(capturaRede, pessoa_nome, coluna, tabela)
 
+    def salvar_dados_lista(self, nome, coluna, dados, tabela):
+        nomeCapturado = nome[0]
+        conn = sq.connect('curriculo.db')
+        cursor = conn.cursor()
+        for i in range(len(coluna)):
+            cursor.execute(f"UPDATE {tabela} SET {coluna[i]} = ? WHERE pessoa_nome = ?", (dados[i].get(), nomeCapturado))
+            if cursor.rowcount == 0:
+                cursor.execute(f"INSERT INTO {tabela} (pessoa_nome, {coluna[i]}) VALUES (?, ?)", (nomeCapturado, dados[i].get()))
+        conn.commit()
+        conn.close()
