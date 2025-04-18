@@ -94,12 +94,15 @@ class Inputs(InputsABC):
         colunas = ['Dado1', 'Dado2', 'Dado3', 'Dado4', 'Dado5',]
         dados = [a1, a2, a3, a4, a5]
         self.__botao.criarBotao(camada,'Salvar',0.4,0.83,1,5,
-                                lambda : self.__tratar.salvar_dados_lista(self.__nome, colunas, dados, tabela
-        ))
+                                lambda : self.__tratar.salvar_dados_lista(self.__nome, colunas, dados, tabela)
+                                )
 
     def criarInputsTexto(self, camada):
         texto = tk.Text(camada,font=("Arial", 12), height=14, width=19, bg='light gray')
         texto.place(relx=0.09, rely=0.075)
+        self.__botao.criarBotao(camada, 'Salvar', 0.4,0.83,1,5,
+                                lambda : self.__tratar.salvar_dado_estrangeiro(texto.get(1.0, 'end'),
+                                self.__nome, "Dado1", 'sobremim'))
 
     def buildInputs(self, a, b, c, d, e, f, g, h, i):
         self.criarInputsDados(a)
