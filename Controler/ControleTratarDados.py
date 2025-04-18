@@ -25,3 +25,8 @@ class ControleTratarDados(ControleTratarDadosABS):
 
     def salvar_dados_lista(self, nome, coluna, dados, tabela):
         self.__tratar.salvar_dados_lista(nome, coluna, dados, tabela)
+
+    def salvar_texto(self, dado, nome, coluna, tabela):
+        capturaDado = nome[0]
+        texto = dado.get(1.0, 'end')
+        self.__tratar.salvar_dado_estrangeiro(texto, capturaDado, coluna, tabela)

@@ -101,8 +101,7 @@ class Inputs(InputsABC):
         texto = tk.Text(camada,font=("Arial", 12), height=14, width=19, bg='light gray')
         texto.place(relx=0.09, rely=0.075)
         self.__botao.criarBotao(camada, 'Salvar', 0.4,0.83,1,5,
-                                lambda : self.__tratar.salvar_dado_estrangeiro(texto.get(1.0, 'end'),
-                                self.__nome, "Dado1", 'sobremim'))
+                                lambda : self.__tratar.salvar_texto(texto, self.__nome, 'Dado1', 'sobremim'))
 
     def buildInputs(self, a, b, c, d, e, f, g, h, i):
         self.criarInputsDados(a)
