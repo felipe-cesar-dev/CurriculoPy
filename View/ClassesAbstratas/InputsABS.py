@@ -4,7 +4,7 @@ class InputsABC(ABC):
     def __init__(self):
         pass
     @abstractmethod
-    def input(self, camada, a, b):
+    def input(self, camada, a, b, ativar):
         pass
 
     @abstractmethod

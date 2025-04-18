@@ -12,6 +12,7 @@ class Inputs(InputsABC):
         self.__nome = []
         self.__tratar = tratar
         self.__botao = botao
+        self.__ativar = ['disabled']
         self.a = 0.21
         self.b = 0.47
         self.c = 0.73
@@ -20,14 +21,19 @@ class Inputs(InputsABC):
         self.y2 = 0.37
         self.y3 = 0.63
 
-    def input(self, camada, a, b):
-        input = tk.Entry(camada, bg='light gray', font=("Arial", 14), width=15)
+    def input(self, camada, a, b, ativar):
+        input = tk.Entry(camada, bg='light gray', font=("Arial", 14), width=15, state=ativar)
         input.place(relx=a, rely=b, anchor=CENTER)
         return input
 
+    def inputText(self, camada, a, b, ativar):
+        texto = tk.Text(camada,font=("Arial", 12), height=14, width=19, bg='light gray', state=ativar)
+        texto.place(relx=a, rely=b)
+        return texto
+
     def criarInputNome(self, camada):
         self.__labels.labelsInputs('Nome: ', camada, self.d, self.y1, CENTER)
-        nome = self.input(camada, self.d, self.a)
+        nome = self.input(camada, self.d, self.a, 'normal')
         self.__botao.criarBotao(
             camada, '\u2713', 0.842, 0.135, 1, 3, lambda:
                 self.__tratar.salvar_nome(self.__nome, nome),
@@ -37,7 +43,7 @@ class Inputs(InputsABC):
 
         self.__labels.labelsInputs('Profissão: ', camada, self.d, self.y2, CENTER)
 
-        profissao = self.input(camada, self.d, self.b)
+        profissao = self.input(camada, self.d, self.b, self.__ativar)
         self.__botao.criarBotao(
             camada, 'Salvar', 0.4, 0.83, 1, 5, lambda:
                 self.__tratar.salvar_dados(self.__nome, profissao,'Profissao')
@@ -48,9 +54,9 @@ class Inputs(InputsABC):
         self.__labels.labelsInputs('E-mail: ', camada, self.d, self.y2, CENTER)
         self.__labels.labelsInputs('Endereço: ', camada, self.d, self.y3, CENTER)
 
-        celular = self.input(camada, self.d, self.a)
-        email = self.input(camada, self.d, self.b)
-        endereco = self.input(camada, self.d, self.c)
+        celular = self.input(camada, self.d, self.a, self.__ativar)
+        email = self.input(camada, self.d, self.b, self.__ativar)
+        endereco = self.input(camada, self.d, self.c, self.__ativar)
         self.__botao.criarBotao(
             camada, 'Salvar', 0.4, 0.83, 1, 5, lambda: [
                 self.__tratar.salvar_dados(self.__nome, celular, 'Celular'),
@@ -64,9 +70,9 @@ class Inputs(InputsABC):
         self.__labels.labelsInputs('Estado Cívil: ', camada, self.d, self.y2, CENTER)
         self.__labels.labelsInputs('Nacionalidade: ', camada, self.d, self.y3, CENTER)
 
-        nasc = self.input(camada, self.d, self.a)
-        eCivil = self.input(camada, self.d, self.b)
-        nacionalidade = self.input(camada, self.d, self.c)
+        nasc = self.input(camada, self.d, self.a, self.__ativar)
+        eCivil = self.input(camada, self.d, self.b, self.__ativar)
+        nacionalidade = self.input(camada, self.d, self.c, self.__ativar)
 
         self.__botao.criarBotao(
             camada, 'Salvar', 0.4, 0.83, 1, 5, lambda: [
@@ -80,9 +86,9 @@ class Inputs(InputsABC):
         self.__labels.labelsInputs('Facebook: ', camada, self.d, self.y1, CENTER)
         self.__labels.labelsInputs('Instagram: ', camada, self.d, self.y2, CENTER)
         self.__labels.labelsInputs('Linkedin: ', camada, self.d, self.y3, CENTER)
-        face = self.input(camada, self.d, self.a)
-        insta = self.input(camada, self.d, self.b)
-        linkedin = self.input(camada, self.d, self.c)
+        face = self.input(camada, self.d, self.a, self.__ativar)
+        insta = self.input(camada, self.d, self.b, self.__ativar)
+        linkedin = self.input(camada, self.d, self.c, self.__ativar)
         self.__botao.criarBotao(camada,'Salvar',0.4,0.83,1,5, lambda: [
                 self.__tratar.salvar_dado_estrangeiro(face, self.__nome, 'Facebook', 'redes'),
                 self.__tratar.salvar_dado_estrangeiro(insta, self.__nome, 'Instagram', 'redes'),
@@ -92,11 +98,11 @@ class Inputs(InputsABC):
 
     def criarInputsAdicionais(self, camada, tabela):
         valores = {'x1': 0.5, 'y1': 0.12, 'y2': 0.28, 'y3': 0.44, 'y4': 0.60, 'y5': 0.76}
-        a1 = self.input(camada, valores.get('x1'), valores.get('y1'))
-        a2 = self.input(camada, valores.get('x1'), valores.get('y2'))
-        a3 = self.input(camada, valores.get('x1'), valores.get('y3'))
-        a4 = self.input(camada, valores.get('x1'), valores.get('y4'))
-        a5 = self.input(camada, valores.get('x1'), valores.get('y5'))
+        a1 = self.input(camada, valores.get('x1'), valores.get('y1'), self.__ativar)
+        a2 = self.input(camada, valores.get('x1'), valores.get('y2'), self.__ativar)
+        a3 = self.input(camada, valores.get('x1'), valores.get('y3'), self.__ativar)
+        a4 = self.input(camada, valores.get('x1'), valores.get('y4'), self.__ativar)
+        a5 = self.input(camada, valores.get('x1'), valores.get('y5'), self.__ativar)
         colunas = ['Dado1', 'Dado2', 'Dado3', 'Dado4', 'Dado5',]
         dados = [a1, a2, a3, a4, a5]
         self.__botao.criarBotao(camada,'Salvar',0.4,0.83,1,5,
@@ -104,8 +110,7 @@ class Inputs(InputsABC):
                                 )
 
     def criarInputsTexto(self, camada):
-        texto = tk.Text(camada,font=("Arial", 12), height=14, width=19, bg='light gray')
-        texto.place(relx=0.09, rely=0.075)
+        texto = self.inputText(camada, 0.09, 0.075, 'normal')
         self.__botao.criarBotao(camada, 'Salvar', 0.4,0.83,1,5,
                                 lambda : self.__tratar.salvar_texto(texto, self.__nome, 'Dado1', 'sobremim'))
 
