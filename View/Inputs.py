@@ -25,16 +25,22 @@ class Inputs(InputsABC):
         input.place(relx=a, rely=b, anchor=CENTER)
         return input
 
-    def criarInputsDados(self, camada):
+    def criarInputNome(self, camada):
         self.__labels.labelsInputs('Nome: ', camada, self.d, self.y1, CENTER)
-        self.__labels.labelsInputs('Profissão: ', camada, self.d, self.y2, CENTER)
         nome = self.input(camada, self.d, self.a)
+        self.__botao.criarBotao(
+            camada, '\u2713', 0.842, 0.135, 1, 3, lambda:
+                self.__tratar.salvar_nome(self.__nome, nome),
+        )
+
+    def criarInputsDados(self, camada):
+
+        self.__labels.labelsInputs('Profissão: ', camada, self.d, self.y2, CENTER)
+
         profissao = self.input(camada, self.d, self.b)
         self.__botao.criarBotao(
-            camada, 'Salvar', 0.4, 0.83, 1, 5, lambda: [
-                self.__tratar.salvar_nome(self.__nome, nome),
+            camada, 'Salvar', 0.4, 0.83, 1, 5, lambda:
                 self.__tratar.salvar_dados(self.__nome, profissao,'Profissao')
-            ]
         )
 
     def criarInputsContato(self, camada):
@@ -103,7 +109,7 @@ class Inputs(InputsABC):
         self.__botao.criarBotao(camada, 'Salvar', 0.4,0.83,1,5,
                                 lambda : self.__tratar.salvar_texto(texto, self.__nome, 'Dado1', 'sobremim'))
 
-    def buildInputs(self, a, b, c, d, e, f, g, h, i):
+    def buildInputs(self, a, b, c, d, e, f, g, h, i, j):
         self.criarInputsDados(a)
         self.criarInputsContato(b)
         self.criarInputsPessoais(c)
@@ -113,3 +119,4 @@ class Inputs(InputsABC):
         self.criarInputsAdicionais(g, 'experiencias')
         self.criarInputsAdicionais(h, 'formacoes')
         self.criarInputsTexto(i)
+        self.criarInputNome(j)

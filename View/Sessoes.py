@@ -34,7 +34,7 @@ class Sessoes(SessoesAbstrata):
 
         self.__inputs.buildInputs(
             self.__dadosPessoais, self.__infosCtt, self.__infosPess, self.__redes, self.__cursos, self.__conhecimentos,
-            self.__exp, self.__formAcademica, self.__sobreMim
+            self.__exp, self.__formAcademica, self.__sobreMim, self.__dadosPessoais
         )
 
     def sessao(self, camada, w, h, x, y):

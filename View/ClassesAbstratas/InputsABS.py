@@ -32,5 +32,5 @@ class InputsABC(ABC):
         pass
 
     @abstractmethod
-    def buildInputs(self,a, b, c, d, e, f, g, h, i):
+    def buildInputs(self,a, b, c, d, e, f, g, h, i, j):
         pass
