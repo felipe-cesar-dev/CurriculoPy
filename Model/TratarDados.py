@@ -36,9 +36,11 @@ class TratarDados(TratarDadosABS):
         conn = sq.connect('curriculo.db')
         cursor = conn.cursor()
         for i in range(len(coluna)):
-            cursor.execute(f"UPDATE {tabela} SET {coluna[i]} = ? WHERE pessoa_nome = ?", (dados[i].get(), nomeCapturado))
+            cursor.execute(f"UPDATE {tabela} SET {coluna[i]} = ? WHERE pessoa_nome = ?",
+                           (dados[i].get(), nomeCapturado))
             if cursor.rowcount == 0:
-                cursor.execute(f"INSERT INTO {tabela} (pessoa_nome, {coluna[i]}) VALUES (?, ?)", (nomeCapturado, dados[i].get()))
+                cursor.execute(f"INSERT INTO {tabela} (pessoa_nome, {coluna[i]}) VALUES (?, ?)",
+                               (nomeCapturado, dados[i].get()))
         conn.commit()
         conn.close()
 

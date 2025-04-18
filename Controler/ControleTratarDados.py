@@ -1,6 +1,5 @@
 from Controler.ControleTratarDadosABS import ControleTratarDadosABS
 from Model.TratarDadosABS import TratarDadosABS
-import sqlite3 as sq
 
 class ControleTratarDados(ControleTratarDadosABS):
     def __init__(self, tratar: TratarDadosABS):

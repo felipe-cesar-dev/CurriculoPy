@@ -93,8 +93,8 @@ class Inputs(InputsABC):
         a5 = self.input(camada, valores.get('x1'), valores.get('y5'))
         colunas = ['Dado1', 'Dado2', 'Dado3', 'Dado4', 'Dado5',]
         dados = [a1, a2, a3, a4, a5]
-        self.__botao.criarBotao(camada,'Salvar',0.4,0.83,1,5, lambda : self.__tratar.salvar_dados_lista(
-            self.__nome, colunas, dados, tabela
+        self.__botao.criarBotao(camada,'Salvar',0.4,0.83,1,5,
+                                lambda : self.__tratar.salvar_dados_lista(self.__nome, colunas, dados, tabela
         ))
 
     def criarInputsTexto(self, camada):
