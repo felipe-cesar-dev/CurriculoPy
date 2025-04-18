@@ -12,7 +12,7 @@ class Inputs(InputsABC):
         self.__nome = []
         self.__tratar = tratar
         self.__botao = botao
-        self.__ativar = ['disabled']
+        self.__ativar = 'disabled'
         self.a = 0.21
         self.b = 0.47
         self.c = 0.73
@@ -20,6 +20,14 @@ class Inputs(InputsABC):
         self.y1 = 0.11
         self.y2 = 0.37
         self.y3 = 0.63
+
+    def ativar(self):
+        self.__ativar = 'normal'
+        print(self.__ativar)
+        return self.__ativar
+
+    def desativar(self):
+        self.__ativar = 'disabled'
 
     def input(self, camada, a, b, ativar):
         input = tk.Entry(camada, bg='light gray', font=("Arial", 14), width=15, state=ativar)
@@ -35,14 +43,13 @@ class Inputs(InputsABC):
         self.__labels.labelsInputs('Nome: ', camada, self.d, self.y1, CENTER)
         nome = self.input(camada, self.d, self.a, 'normal')
         self.__botao.criarBotao(
-            camada, '\u2713', 0.842, 0.135, 1, 3, lambda:
-                self.__tratar.salvar_nome(self.__nome, nome),
+            camada, '\u2713', 0.842, 0.135, 1, 3, lambda:[
+                self.__tratar.salvar_nome(self.__nome, nome), self.ativar()
+            ]
         )
 
     def criarInputsDados(self, camada):
-
         self.__labels.labelsInputs('Profissão: ', camada, self.d, self.y2, CENTER)
-
         profissao = self.input(camada, self.d, self.b, self.__ativar)
         self.__botao.criarBotao(
             camada, 'Salvar', 0.4, 0.83, 1, 5, lambda:
@@ -110,7 +117,7 @@ class Inputs(InputsABC):
                                 )
 
     def criarInputsTexto(self, camada):
-        texto = self.inputText(camada, 0.09, 0.075, 'normal')
+        texto = self.inputText(camada, 0.09, 0.075, self.__ativar)
         self.__botao.criarBotao(camada, 'Salvar', 0.4,0.83,1,5,
                                 lambda : self.__tratar.salvar_texto(texto, self.__nome, 'Dado1', 'sobremim'))
 
