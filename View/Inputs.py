@@ -13,6 +13,8 @@ class Inputs(InputsABC):
         self.__tratar = tratar
         self.__botao = botao
         self.__ativar = 'disabled'
+        self.__entradas = []  # Lista para armazenar os Entry widgets
+        self.__textos = []  # Lista para armazenar os Text widgets
         self.a = 0.21
         self.b = 0.47
         self.c = 0.73
@@ -21,30 +23,47 @@ class Inputs(InputsABC):
         self.y2 = 0.37
         self.y3 = 0.63
 
-    def ativar(self):
+    def ativar_tudo(self):
         self.__ativar = 'normal'
         print(self.__ativar)
+        self.__atualizar_estados()
         return self.__ativar
 
-    def desativar(self):
+    def desativar_tudo(self):
         self.__ativar = 'disabled'
+        self.__atualizar_estados()
+
+    def __atualizar_estados(self):
+        for entrada in self.__entradas:
+            try:
+                entrada.config(state=self.__ativar)
+            except tk.TclError:
+                pass  # Lidar com widgets que podem ter sido destruídos
+
+        for texto in self.__textos:
+            try:
+                texto.config(state=self.__ativar)
+            except tk.TclError:
+                pass  # Lidar com widgets que podem ter sido destruídos
 
     def input(self, camada, a, b, ativar):
-        input = tk.Entry(camada, bg='light gray', font=("Arial", 14), width=15, state=ativar)
-        input.place(relx=a, rely=b, anchor=CENTER)
-        return input
+        input_widget = tk.Entry(camada, bg='light gray', font=("Arial", 14), width=15, state=ativar)
+        input_widget.place(relx=a, rely=b, anchor=CENTER)
+        self.__entradas.append(input_widget)
+        return input_widget
 
     def inputText(self, camada, a, b, ativar):
-        texto = tk.Text(camada,font=("Arial", 12), height=14, width=19, bg='light gray', state=ativar)
-        texto.place(relx=a, rely=b)
-        return texto
+        texto_widget = tk.Text(camada,font=("Arial", 12), height=14, width=19, bg='light gray', state=ativar)
+        texto_widget.place(relx=a, rely=b)
+        self.__textos.append(texto_widget)
+        return texto_widget
 
     def criarInputNome(self, camada):
         self.__labels.labelsInputs('Nome: ', camada, self.d, self.y1, CENTER)
         nome = self.input(camada, self.d, self.a, 'normal')
         self.__botao.criarBotao(
             camada, '\u2713', 0.842, 0.135, 1, 3, lambda:[
-                self.__tratar.salvar_nome(self.__nome, nome), self.ativar()
+                self.__tratar.salvar_nome(self.__nome, nome), self.ativar_tudo()
             ]
         )
 
