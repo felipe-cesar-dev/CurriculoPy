@@ -1,4 +1,6 @@
 from tkinter.constants import CENTER
+
+from Controler.ControleAtivacaoInputsABS import ControleAtivacaoInputsABS
 from Controler.ControleTratarDadosABS import ControleTratarDadosABS
 from View.ClassesAbstratas.BotaoABS import BotaoABS
 from View.ClassesAbstratas.InputsABS import InputsABC
@@ -6,8 +8,9 @@ import tkinter as tk
 from View.ClassesAbstratas.LabelsABS import LabelsAbstrata
 
 class Inputs(InputsABC):
-    def __init__(self, labels: LabelsAbstrata, tratar: ControleTratarDadosABS, botao: BotaoABS):
+    def __init__(self, labels: LabelsAbstrata, tratar: ControleTratarDadosABS, botao: BotaoABS, ativar: ControleAtivacaoInputsABS):
         super().__init__()
+        self.__ativacao = ativar
         self.__labels = labels
         self.__nome = []
         self.__tratar = tratar
@@ -22,29 +25,6 @@ class Inputs(InputsABC):
         self.y1 = 0.11
         self.y2 = 0.37
         self.y3 = 0.63
-
-    def ativar_tudo(self):
-        self.__ativar = 'normal'
-        print(self.__ativar)
-        self.__atualizar_estados()
-        return self.__ativar
-
-    def desativar_tudo(self):
-        self.__ativar = 'disabled'
-        self.__atualizar_estados()
-
-    def __atualizar_estados(self):
-        for entrada in self.__entradas:
-            try:
-                entrada.config(state=self.__ativar)
-            except tk.TclError:
-                pass  # Lidar com widgets que podem ter sido destruídos
-
-        for texto in self.__textos:
-            try:
-                texto.config(state=self.__ativar)
-            except tk.TclError:
-                pass  # Lidar com widgets que podem ter sido destruídos
 
     def input(self, camada, a, b, ativar):
         input_widget = tk.Entry(camada, bg='light gray', font=("Arial", 14), width=15, state=ativar)
@@ -63,7 +43,7 @@ class Inputs(InputsABC):
         nome = self.input(camada, self.d, self.a, 'normal')
         self.__botao.criarBotao(
             camada, '\u2713', 0.842, 0.135, 1, 3, lambda:[
-                self.__tratar.salvar_nome(self.__nome, nome), self.ativar_tudo()
+                self.__tratar.salvar_nome(self.__nome, nome), self.__ativacao.ativar_tudo(self.__ativar,self.__entradas,self.__textos)
             ]
         )
 
