@@ -8,9 +8,11 @@ class ControleTratarDados(ControleTratarDadosABS):
 
     def salvar_nome(self, array, nome):
         array.clear()
-        array.append(nome.get())
+        lenNome = nome.get()
+        array.append(lenNome)
         self.__tratar.salvar_nome(array[0])
-        return array.append(nome.get())
+        print(array)
+        return array.append(lenNome)
 
     def salvar_dados(self, nome, dado, coluna):
         colunaNome = nome[0]
