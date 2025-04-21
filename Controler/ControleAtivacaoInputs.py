@@ -25,15 +25,15 @@ class ControleAtivacaoInputs(ControleAtivacaoInputsABS):
             except tk.TclError:
                 pass  # Lidar com widgets que podem ter sido destruídos
 
-    def atualizar_botoes(self, botoes, ativar):
+    def ativar_botoes(self, botoes, ativar):
         ativar = 'normal'
-        self.ativar_botoes(botoes, ativar)
+        self.atualizar_botoes(botoes, ativar)
         return ativar
 
-    def ativar_botoes(self, botoes, ativar, nome):
+    def atualizar_botoes(self, botoes, ativar):
         for botao in botoes:
             try:
                 botao.config(state=ativar)
             except tk.TclError:
                 pass
-        nome.config(state = 'disabled')
+
