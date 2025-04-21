@@ -7,7 +7,8 @@ import tkinter as tk
 from View.ClassesAbstratas.LabelsABS import LabelsAbstrata
 
 class Inputs(InputsABC):
-    def __init__(self, labels: LabelsAbstrata, tratar: ControleTratarDadosABS, botao: BotaoABS, ativar: ControleAtivacaoInputsABS):
+    def __init__(self, labels: LabelsAbstrata, tratar: ControleTratarDadosABS,
+                 botao: BotaoABS, ativar: ControleAtivacaoInputsABS):
         super().__init__()
         self.__ativacao = ativar
         self.__labels = labels
