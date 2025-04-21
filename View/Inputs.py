@@ -1,5 +1,4 @@
 from tkinter.constants import CENTER
-
 from Controler.ClassesAbstratas.ControleAtivacaoInputsABS import ControleAtivacaoInputsABS
 from Controler.ClassesAbstratas.ControleTratarDadosABS import ControleTratarDadosABS
 from View.ClassesAbstratas.BotaoABS import BotaoABS
@@ -46,8 +45,7 @@ class Inputs(InputsABC):
             camada, '\u2713', 0.842, 0.135, 1, 3, lambda:[
                 self.__tratar.salvar_nome(self.__nome, nome),
                 self.__ativacao.ativar_tudo(self.__ativar,self.__entradas,self.__textos),
-                self.__ativacao.ativar_botoes(self.__armazenar_botoes, self.__ativar),
-                nome.config(state='disabled')
+                self.__ativacao.ativar_botoes(self.__armazenar_botoes, self.__ativar, nome),
             ], self.__armazenar_botoes
         )
 

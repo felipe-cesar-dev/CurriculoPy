@@ -13,5 +13,5 @@ class ControleAtivacaoInputsABS(ABC):
     def atualizar_botoes(self, botoes, ativar):
         pass
 
-    def ativar_botoes(self, botoes, ativar):
+    def ativar_botoes(self, botoes, ativar, nome):
         pass

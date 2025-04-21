@@ -9,7 +9,6 @@ class ControleAtivacaoInputs(ControleAtivacaoInputsABS):
 
     def ativar_tudo(self, ativar, entradas, textos):
         ativar = 'normal'
-        print(ativar)
         self.__atualizar_estados(entradas, ativar, textos)
         return ativar
 
@@ -31,9 +30,10 @@ class ControleAtivacaoInputs(ControleAtivacaoInputsABS):
         self.ativar_botoes(botoes, ativar)
         return ativar
 
-    def ativar_botoes(self, botoes, ativar):
+    def ativar_botoes(self, botoes, ativar, nome):
         for botao in botoes:
             try:
                 botao.config(state=ativar)
             except tk.TclError:
                 pass
+        nome.config(state = 'disabled')
