@@ -1,4 +1,4 @@
-from Controler.ControleTratarDadosABS import ControleTratarDadosABS
+from Controler.ClassesAbstratas.ControleTratarDadosABS import ControleTratarDadosABS
 from Model.TratarDadosABS import TratarDadosABS
 
 class ControleTratarDados(ControleTratarDadosABS):
