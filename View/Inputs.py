@@ -44,7 +44,8 @@ class Inputs(InputsABC):
         nome = self.input(camada, self.d, self.a, 'normal')
         self.__botao.criarBotaoNome(camada, '\u2713', 0.842, 0.135, 1, 3,
                                     lambda: self.__tratar.verificar_nome(nome, self.__entradas, self.__textos,
-                                                                         self.__armazenar_botoes, self.__ativar, self.__nome),
+                                                                         self.__armazenar_botoes, self.__ativar,
+                                                                         self.__nome, self.__armazenar_botoes[9]),
                                     self.__armazenar_botoes )
 
     def criarInputsDados(self, camada):
