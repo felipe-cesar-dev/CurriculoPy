@@ -42,17 +42,17 @@ class Inputs(InputsABC):
     def criarInputNome(self, camada):
         self.__labels.labelsInputs('Nome: ', camada, self.d, self.y1, CENTER)
         nome = self.input(camada, self.d, self.a, 'normal')
+        self.__botao.criarBotaoNome(camada, '\u2713', 0.842, 0.135, 1, 3, lambda: self.verificar_nome(nome), self.__armazenar_botoes
+                                    )
+    def verificar_nome(self, nome):
+        if nome.get() == "":
+            from tkinter import messagebox
+            messagebox.showerror("Erro", "Por favor, digite um nome")
+        else:
+            self.__tratar.salvar_nome(self.__nome, nome)
+            self.__ativacao.ativar_tudo(self.__ativar, self.__entradas, self.__textos)
+            self.__ativacao.ativar_botoes(self.__armazenar_botoes, self.__ativar, nome)
 
-        def verificar_nome():
-            if nome.get() == "":
-                from tkinter import messagebox
-                messagebox.showerror("Erro", "Por favor, digite um nome")
-            else:
-                self.__tratar.salvar_nome(self.__nome, nome)
-                self.__ativacao.ativar_tudo(self.__ativar, self.__entradas, self.__textos)
-                self.__ativacao.ativar_botoes(self.__armazenar_botoes, self.__ativar, nome)
-        self.__botao.criarBotaoNome(camada,'\u2713',0.842,0.135,1,3,verificar_nome,self.__armazenar_botoes
-        )
 
     def criarInputsDados(self, camada):
         self.__labels.labelsInputs('Profissão: ', camada, self.d, self.y2, CENTER)
