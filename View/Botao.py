@@ -5,12 +5,14 @@ class Botao(BotaoABS):
     def __init__(self):
         super().__init__()
 
-    def criarBotao(self, camada, texto, x, y, h, w, comando, armazenar):
-        botao = tk.Button(text= texto, height=h, width=w, font=('Arial', 12), bg='green', fg='white', command=comando, state='disabled')
+    def criarBotao(self, camada, texto, x, y, h, w, comando, armazenar, name):
+        botao = tk.Button(text= texto, height=h, width=w, font=('Arial', 12), bg='green', fg='white',
+                          command=comando, state='disabled', name = name)
         botao.place(in_=camada, relx=x, rely=y)
         armazenar.append(botao)
 
     def criarBotaoNome(self, camada, texto, x, y, h, w, comando, armazenar):
-        botao = tk.Button(text= texto, height=h, width=w, font=('Arial', 12), bg='green', fg='white', command=comando, name='nomeSalvo')
+        botao = tk.Button(text= texto, height=h, width=w, font=('Arial', 12), bg='green', fg='white',
+                          command=comando, name='nomeSalvo')
         botao.place(in_=camada, relx=x, rely=y)
         armazenar.append(botao)
