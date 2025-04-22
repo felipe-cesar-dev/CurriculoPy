@@ -50,7 +50,7 @@ class Inputs(InputsABC):
             else:
                 self.__tratar.salvar_nome(self.__nome, nome)
                 self.__ativacao.ativar_tudo(self.__ativar, self.__entradas, self.__textos)
-                self.__ativacao.ativar_botoes(self.__armazenar_botoes, self.__ativar)
+                self.__ativacao.ativar_botoes(self.__armazenar_botoes, self.__ativar, nome)
         self.__botao.criarBotaoNome(camada,'\u2713',0.842,0.135,1,3,verificar_nome,self.__armazenar_botoes
         )
 
