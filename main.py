@@ -10,7 +10,7 @@ from View.Tela import  Tela
 
 ativacao = ControleAtivacaoInputs()
 tratar = TratarDados()
-controle = ControleTratarDados(tratar)
+controle = ControleTratarDados(tratar, ativacao)
 tratar.limparTodosDados()
 labels = Labels()
 botao = Botao()

@@ -1,10 +1,12 @@
 from Controler.ClassesAbstratas.ControleTratarDadosABS import ControleTratarDadosABS
 from Model.TratarDadosABS import TratarDadosABS
+from tkinter import messagebox
 
 class ControleTratarDados(ControleTratarDadosABS):
-    def __init__(self, tratar: TratarDadosABS):
+    def __init__(self, tratar: TratarDadosABS, ativacao):
         super().__init__()
         self.__tratar = tratar
+        self.__ativacao = ativacao
 
     def salvar_nome(self, array, nome):
         array.clear()
@@ -31,3 +33,11 @@ class ControleTratarDados(ControleTratarDadosABS):
         capturaDado = nome[0]
         texto = dado.get(1.0, 'end')
         self.__tratar.salvar_dado_estrangeiro(texto, capturaDado, coluna, tabela)
+
+    def verificar_nome(self, nome, entradas, textos, botoes, ativar):
+        if nome.get() == "":
+            messagebox.showerror("Erro", "Por favor, digite um nome")
+        else:
+            self.salvar_nome([], nome)
+            self.__ativacao.ativar_tudo(ativar, entradas, textos)
+            self.__ativacao.ativar_botoes(botoes, ativar, nome)

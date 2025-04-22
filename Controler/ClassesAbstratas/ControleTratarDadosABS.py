@@ -23,3 +23,7 @@ class ControleTratarDadosABS(ABC):
     @abstractmethod
     def salvar_texto(self, dado, nome, coluna, tabela):
         pass
+
+    @abstractmethod
+    def verificar_nome(self, nome, entradas, textos, botoes, ativar):
+        pass
