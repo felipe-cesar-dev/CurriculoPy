@@ -34,10 +34,10 @@ class ControleTratarDados(ControleTratarDadosABS):
         texto = dado.get(1.0, 'end')
         self.__tratar.salvar_dado_estrangeiro(texto, capturaDado, coluna, tabela)
 
-    def verificar_nome(self, nome, entradas, textos, botoes, ativar):
+    def verificar_nome(self, nome, entradas, textos, botoes, ativar, array):
         if nome.get() == "":
             messagebox.showerror("Erro", "Por favor, digite um nome")
         else:
-            self.salvar_nome([], nome)
+            self.salvar_nome(array, nome)
             self.__ativacao.ativar_tudo(ativar, entradas, textos)
             self.__ativacao.ativar_botoes(botoes, ativar, nome)
