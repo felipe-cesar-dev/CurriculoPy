@@ -48,15 +48,13 @@ class Inputs(InputsABC):
                                                                          self.__nome, self.__armazenar_botoes[9]),
                                     self.__armazenar_botoes )
 
-        print(self.__armazenar_botoes)
-
     def criarInputsDados(self, camada):
         self.__labels.labelsInputs('Profissão: ', camada, self.d, self.y2, CENTER)
         profissao = self.input(camada, self.d, self.b, self.__ativar)
         self.__botao.criarBotao(
             camada, 'Salvar', 0.4, 0.83, 1, 5, lambda:
                 self.__tratar.salvar_dados(self.__nome, profissao,'Profissao'),
-            self.__armazenar_botoes
+            self.__armazenar_botoes, profissao
         )
 
     def criarInputsContato(self, camada):
@@ -72,7 +70,7 @@ class Inputs(InputsABC):
                 self.__tratar.salvar_dados(self.__nome, celular, 'Celular'),
                 self.__tratar.salvar_dados(self.__nome, email, 'Email'),
                 self.__tratar.salvar_dados(self.__nome, endereco, 'Endereco')
-            ], self.__armazenar_botoes
+            ], self.__armazenar_botoes, [celular, endereco, email]
         )
 
     def criarInputsPessoais(self, camada):

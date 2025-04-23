@@ -1,13 +1,15 @@
+from Controler.ClassesAbstratas.ControleBotoesABS import ControleBotoesABS
 from View.ClassesAbstratas.BotaoABS import BotaoABS
 import tkinter as tk
 
 class Botao(BotaoABS):
-    def __init__(self):
+    def __init__(self, clicar: ControleBotoesABS):
         super().__init__()
+        self.__clicar = clicar
 
-    def criarBotao(self, camada, texto, x, y, h, w, comando, armazenar):
+    def criarBotao(self, camada, texto, x, y, h, w, comando, armazenar, inputs):
         botao = tk.Button(text= texto, height=h, width=w, font=('Arial', 12), bg='green', fg='white',
-                          command=comando, state='disabled')
+                          command= lambda: [comando, self.__clicar.botaoclicado(botao, inputs) ], state='disabled')
         botao.place(in_=camada, relx=x, rely=y)
         armazenar.append(botao)
 
