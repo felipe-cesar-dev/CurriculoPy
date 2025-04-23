@@ -19,13 +19,8 @@ class Inputs(InputsABC):
         self.__ativar = 'disabled'
         self.__entradas = []  # Lista para armazenar os Entry widgets
         self.__textos = []  # Lista para armazenar os Text widgets
-        self.a = 0.21
-        self.b = 0.47
-        self.c = 0.73
-        self.d = 0.5
-        self.y1 = 0.11
-        self.y2 = 0.37
-        self.y3 = 0.63
+        self.a, self.b, self.c, self.d, self.y1, self.y2, self.y3 = 0.21, 0.47, 0.73, 0.5, 0.11, 0.37, 0.63
+        self.x, self.y, self.w, self.h, self.vinteseis = 0.28, 0.83, 5, 1, 0.26
 
     def input(self, camada, a, b, ativar):
         input_widget = tk.Entry(camada, bg='light gray', font=("Arial", 14), width=15, state=ativar)
@@ -52,9 +47,9 @@ class Inputs(InputsABC):
         self.__labels.labelsInputs('Profissão: ', camada, self.d, self.y2, CENTER)
         profissao = self.input(camada, self.d, self.b, self.__ativar)
         self.__botao.criarBotao(
-            camada, 'Salvar', 0.4, 0.83, 1, 5, lambda:
+            camada, 'Salvar', self.x, self.y, self.h, self.w, lambda:
                 self.__tratar.salvar_dados(self.__nome, profissao,'Profissao'),
-            self.__armazenar_botoes, profissao
+            self.__armazenar_botoes, profissao, self.vinteseis
         )
 
     def criarInputsContato(self, camada):
@@ -66,11 +61,11 @@ class Inputs(InputsABC):
         email = self.input(camada, self.d, self.b, self.__ativar)
         endereco = self.input(camada, self.d, self.c, self.__ativar)
         self.__botao.criarBotao(
-            camada, 'Salvar', 0.4, 0.83, 1, 5, lambda: [
+            camada, 'Salvar', self.x, self.y, self.h, self.w, lambda: [
                 self.__tratar.salvar_dados(self.__nome, celular, 'Celular'),
                 self.__tratar.salvar_dados(self.__nome, email, 'Email'),
                 self.__tratar.salvar_dados(self.__nome, endereco, 'Endereco')
-            ], self.__armazenar_botoes, [celular, endereco, email]
+            ], self.__armazenar_botoes, [celular, endereco, email], self.vinteseis
         )
 
     def criarInputsPessoais(self, camada):
@@ -83,11 +78,11 @@ class Inputs(InputsABC):
         nacionalidade = self.input(camada, self.d, self.c, self.__ativar)
 
         self.__botao.criarBotao(
-            camada, 'Salvar', 0.4, 0.83, 1, 5, lambda: [
+            camada, 'Salvar', self.x, self.y, self.h, self.w, lambda: [
                 self.__tratar.salvar_dados(self.__nome, nasc, 'DataNascimento'),
                 self.__tratar.salvar_dados(self.__nome, eCivil, 'EstadoCivil'),
                 self.__tratar.salvar_dados(self.__nome, nacionalidade, 'Nacionalidade')
-            ], self.__armazenar_botoes, [nasc, eCivil, nacionalidade]
+            ], self.__armazenar_botoes, [nasc, eCivil, nacionalidade], self.vinteseis
         )
 
     def criarInputsRedes(self, camada):
@@ -97,11 +92,11 @@ class Inputs(InputsABC):
         face = self.input(camada, self.d, self.a, self.__ativar)
         insta = self.input(camada, self.d, self.b, self.__ativar)
         linkedin = self.input(camada, self.d, self.c, self.__ativar)
-        self.__botao.criarBotao(camada,'Salvar',0.4,0.83,1,5, lambda: [
+        self.__botao.criarBotao(camada,'Salvar',self.x,self.y,self.h, self.w, lambda: [
                 self.__tratar.salvar_dado_estrangeiro(face, self.__nome, 'Facebook', 'redes'),
                 self.__tratar.salvar_dado_estrangeiro(insta, self.__nome, 'Instagram', 'redes'),
                 self.__tratar.salvar_dado_estrangeiro(linkedin, self.__nome, 'Linkedin', 'redes')
-            ], self.__armazenar_botoes, [face, insta, linkedin]
+            ], self.__armazenar_botoes, [face, insta, linkedin], self.vinteseis
         )
 
     def criarInputsAdicionais(self, camada, tabela):
@@ -113,15 +108,15 @@ class Inputs(InputsABC):
         a5 = self.input(camada, valores.get('x1'), valores.get('y5'), self.__ativar)
         colunas = ['Dado1', 'Dado2', 'Dado3', 'Dado4', 'Dado5',]
         dados = [a1, a2, a3, a4, a5]
-        self.__botao.criarBotao(camada,'Salvar',0.4,0.83,1,5,
+        self.__botao.criarBotao(camada,'Salvar',0.23,0.88,self.h, self.w,
                                 lambda : self.__tratar.salvar_dados_lista(self.__nome, colunas, dados, tabela)
-                                , self.__armazenar_botoes, dados)
+                                , self.__armazenar_botoes, dados, 0.315)
 
     def criarInputsTexto(self, camada):
         texto = self.inputText(camada, 0.09, 0.075, self.__ativar)
-        self.__botao.criarBotao(camada, 'Salvar', 0.4,0.83,1,5,
+        self.__botao.criarBotao(camada, 'Salvar', 0.23,0.88,self.h, self.w,
                                 lambda : self.__tratar.salvar_texto(texto, self.__nome, 'Dado1', 'sobremim')
-                                , self.__armazenar_botoes, texto
+                                , self.__armazenar_botoes, texto, 0.315
                                 )
 
     def buildInputs(self, a, b, c, d, e, f, g, h, i, j):
