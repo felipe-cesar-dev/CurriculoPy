@@ -10,11 +10,11 @@ class Botao(BotaoABS):
     def criarBotao(self, camada, texto, x, y, h, w, comando, armazenar, inputs, espacamento):
         botao = tk.Button(text= texto, height=h, width=w, font=('Arial', 12), bg='green', fg='white',
                           disabledforeground='lightgray',
-                          command= lambda: [comando, self.__clicar.botaoclicado(botao, inputs) ], state='disabled')
+                          command= lambda: [comando, self.__clicar.botaoclicado(botao, inputs, botaoeditar) ], state='disabled')
         botao.place(in_=camada, relx=x, rely=y)
         botaoeditar = tk.Button(text= 'Editar', height=h, width=w, font=('Arial', 12), bg='red', fg='white',
                           disabledforeground='lightgray',
-                          command= lambda: [comando, self.__clicar.botaoclicado(botao, inputs) ], state='disabled')
+                          command= lambda: [comando, self.__clicar.botaoclicado(botao, inputs, botaoeditar) ], state='disabled')
         botao.place(in_=camada, relx=x, rely=y)
         botaoeditar.place(in_=camada, relx=x+espacamento, rely=y)
         armazenar.append(botao)

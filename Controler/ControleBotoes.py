@@ -6,7 +6,7 @@ class ControleBotoes(ControleBotoesABS):
         super().__init__()
         pass
 
-    def botaoclicado(self, botao, inputs):
+    def botaoclicado(self, botao, inputs, botaoeditar):
         if isinstance(inputs, list):
             for entry in inputs:
                 entry.config(state="disabled")
@@ -15,3 +15,4 @@ class ControleBotoes(ControleBotoesABS):
             inputs.config(state="disabled")
             pass
         botao.config(state="disabled")
+        botaoeditar.config(state = 'normal')
