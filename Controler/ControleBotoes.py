@@ -7,5 +7,11 @@ class ControleBotoes(ControleBotoesABS):
         pass
 
     def botaoclicado(self, botao, inputs):
-        botao.config(state = 'disabled')
-        inputs.config(state = 'disabled')
+        if isinstance(inputs, list):
+            for entry in inputs:
+                entry.config(state="disabled")
+                pass
+        elif isinstance(inputs, object):
+            inputs.config(state="disabled")
+            pass
+        botao.config(state="disabled")

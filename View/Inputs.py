@@ -87,7 +87,7 @@ class Inputs(InputsABC):
                 self.__tratar.salvar_dados(self.__nome, nasc, 'DataNascimento'),
                 self.__tratar.salvar_dados(self.__nome, eCivil, 'EstadoCivil'),
                 self.__tratar.salvar_dados(self.__nome, nacionalidade, 'Nacionalidade')
-            ], self.__armazenar_botoes
+            ], self.__armazenar_botoes, [nasc, eCivil, nacionalidade]
         )
 
     def criarInputsRedes(self, camada):
@@ -101,7 +101,7 @@ class Inputs(InputsABC):
                 self.__tratar.salvar_dado_estrangeiro(face, self.__nome, 'Facebook', 'redes'),
                 self.__tratar.salvar_dado_estrangeiro(insta, self.__nome, 'Instagram', 'redes'),
                 self.__tratar.salvar_dado_estrangeiro(linkedin, self.__nome, 'Linkedin', 'redes')
-            ], self.__armazenar_botoes
+            ], self.__armazenar_botoes, [face, insta, linkedin]
         )
 
     def criarInputsAdicionais(self, camada, tabela):
@@ -115,13 +115,13 @@ class Inputs(InputsABC):
         dados = [a1, a2, a3, a4, a5]
         self.__botao.criarBotao(camada,'Salvar',0.4,0.83,1,5,
                                 lambda : self.__tratar.salvar_dados_lista(self.__nome, colunas, dados, tabela)
-                                , self.__armazenar_botoes)
+                                , self.__armazenar_botoes, dados)
 
     def criarInputsTexto(self, camada):
         texto = self.inputText(camada, 0.09, 0.075, self.__ativar)
         self.__botao.criarBotao(camada, 'Salvar', 0.4,0.83,1,5,
                                 lambda : self.__tratar.salvar_texto(texto, self.__nome, 'Dado1', 'sobremim')
-                                , self.__armazenar_botoes
+                                , self.__armazenar_botoes, texto
                                 )
 
     def buildInputs(self, a, b, c, d, e, f, g, h, i, j):

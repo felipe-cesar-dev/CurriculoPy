@@ -9,6 +9,7 @@ class Botao(BotaoABS):
 
     def criarBotao(self, camada, texto, x, y, h, w, comando, armazenar, inputs):
         botao = tk.Button(text= texto, height=h, width=w, font=('Arial', 12), bg='green', fg='white',
+                          disabledforeground='lightgray',
                           command= lambda: [comando, self.__clicar.botaoclicado(botao, inputs) ], state='disabled')
         botao.place(in_=camada, relx=x, rely=y)
         armazenar.append(botao)
