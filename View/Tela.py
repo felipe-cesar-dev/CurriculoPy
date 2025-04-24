@@ -1,10 +1,10 @@
 import tkinter as tk
-from View.Botao import Botao
+from View.ClassesAbstratas.BotaoABS import BotaoABS
 from View.ClassesAbstratas.LabelsABS import LabelsAbstrata
 from View.ClassesAbstratas.SessoesABS import SessoesAbstrata
 
 class Tela:
-    def __init__(self, sessao: SessoesAbstrata, label: LabelsAbstrata, botao: Botao):
+    def __init__(self, sessao: SessoesAbstrata, label: LabelsAbstrata, botao: BotaoABS):
         self.tk = tk.Tk()
         self.tk.geometry("1280x760")
         self.tk.title("Crie seu currículo")
@@ -17,8 +17,7 @@ class Tela:
         self.labels = label
         self.sessoes.criarSessoes(self.camada2)
         self.labels.criarLabels(self.camada2)
-        #self.botao.criarBotao(self.camada2,'Gerar Currículo', 0.35, 0.95, 1, 13, 'assasas')
-        #self.botao.criarBotao(self.camada2, 'Limpar Campos', 0.48, 0.95, 1, 13, 'asasdasdsa')
+        self.botao.criarBotaoHTML(self.camada2)
 
     def run(self):
         self.tk.mainloop()

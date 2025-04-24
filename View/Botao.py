@@ -2,6 +2,9 @@ from Controler.ClassesAbstratas.ControleBotoesABS import ControleBotoesABS
 from View.ClassesAbstratas.BotaoABS import BotaoABS
 import tkinter as tk
 
+from View.CurriculoHTML import CurriculoHTML
+
+
 class Botao(BotaoABS):
     def __init__(self, clicar: ControleBotoesABS):
         super().__init__()
@@ -13,7 +16,6 @@ class Botao(BotaoABS):
             self.__clicar.botaoclicado(botao, inputs, botaoeditar)
 
         def comandob():
-            comando()
             self.__clicar.botaoclicadoEditar(botao, inputs, botaoeditar)
 
         botao = tk.Button(text= texto, height=h, width=w, font=('Arial', 12), bg='green', fg='white',
@@ -32,3 +34,9 @@ class Botao(BotaoABS):
                           command=comando, name='nomeSalvo', disabledforeground='lightgray')
         botao.place(in_=camada, relx=x, rely=y)
         armazenar.append(botao)
+
+    def criarBotaoHTML(self, camada):
+        a = CurriculoHTML()
+        botao = tk.Button(text= 'Gerar Currículo', height=2, width=5, font=('Arial', 12), bg='green', fg='white',
+                          command=lambda : a.criar_e_abrir_pagina(), name='nomeSalvo', disabledforeground='lightgray')
+        botao.place(in_=camada, relx=0.5, rely=0.9)

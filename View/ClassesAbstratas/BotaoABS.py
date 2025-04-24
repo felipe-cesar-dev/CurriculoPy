@@ -11,3 +11,7 @@ class BotaoABS(ABC):
     @abstractmethod
     def criarBotaoNome(self, camada, texto, x, y, h, w, comando, armazenar):
         pass
+
+    @abstractmethod
+    def criarBotaoHTML(self, camada):
+        pass
