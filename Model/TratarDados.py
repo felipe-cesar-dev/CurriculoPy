@@ -1,7 +1,5 @@
 import sqlite3 as sq
-
 from Model.TratarDadosABS import TratarDadosABS
-
 
 class TratarDados(TratarDadosABS):
     def __init__(self):
