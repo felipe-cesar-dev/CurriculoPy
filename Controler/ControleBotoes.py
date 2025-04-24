@@ -16,3 +16,14 @@ class ControleBotoes(ControleBotoesABS):
             pass
         botao.config(state="disabled")
         botaoeditar.config(state = 'normal')
+
+    def botaoclicadoEditar(self, botao, inputs, botaoeditar):
+        if isinstance(inputs, list):
+            for entry in inputs:
+                entry.config(state="normal")
+                pass
+        elif isinstance(inputs, object):
+            inputs.config(state="normal")
+            pass
+        botao.config(state="normal")
+        botaoeditar.config(state = 'disabled')

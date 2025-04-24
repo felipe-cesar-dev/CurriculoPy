@@ -16,11 +16,14 @@ class TratarDados(TratarDadosABS):
         conn.close()
 
     def salvar_dado(self, nome, dado, coluna):
-        conn = sq.connect('curriculo.db')
-        cursor = conn.cursor()
-        cursor.execute(f"UPDATE pessoas SET {coluna} = ? WHERE Nome = ?", (dado, nome))
-        conn.commit()
-        conn.close()
+        try:
+            conn = sq.connect('curriculo.db')
+            cursor = conn.cursor()
+            cursor.execute(f"UPDATE pessoas SET {coluna} = ? WHERE Nome = ?", (dado, nome))
+            conn.commit()
+            conn.close()
+        except sq.Error as e:
+            print(f"Erro ao salvar dado: {e}")
 
     def salvar_dado_estrangeiro(self, dado, nome, coluna, tabela):
         conn = sq.connect('curriculo.db')

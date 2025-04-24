@@ -8,13 +8,20 @@ class Botao(BotaoABS):
         self.__clicar = clicar
 
     def criarBotao(self, camada, texto, x, y, h, w, comando, armazenar, inputs, espacamento):
+        def comandoa():
+            comando()
+            self.__clicar.botaoclicado(botao, inputs, botaoeditar)
+
+        def comandob():
+            comando()
+            self.__clicar.botaoclicadoEditar(botao, inputs, botaoeditar)
         botao = tk.Button(text= texto, height=h, width=w, font=('Arial', 12), bg='green', fg='white',
                           disabledforeground='lightgray',
-                          command= lambda: [comando, self.__clicar.botaoclicado(botao, inputs, botaoeditar) ], state='disabled')
+                          command= comandoa, state='disabled')
         botao.place(in_=camada, relx=x, rely=y)
         botaoeditar = tk.Button(text= 'Editar', height=h, width=w, font=('Arial', 12), bg='red', fg='white',
                           disabledforeground='lightgray',
-                          command= lambda: [comando, self.__clicar.botaoclicado(botao, inputs, botaoeditar) ], state='disabled')
+                          command=comandob, state='disabled')
         botao.place(in_=camada, relx=x, rely=y)
         botaoeditar.place(in_=camada, relx=x+espacamento, rely=y)
         armazenar.append(botao)
