@@ -28,6 +28,6 @@ class Botao(BotaoABS):
 
     def criarBotaoNome(self, camada, texto, x, y, h, w, comando, armazenar):
         botao = tk.Button(text= texto, height=h, width=w, font=('Arial', 12), bg='green', fg='white',
-                          command=comando, name='nomeSalvo')
+                          command=comando, name='nomeSalvo', disabledforeground='lightgray')
         botao.place(in_=camada, relx=x, rely=y)
         armazenar.append(botao)
