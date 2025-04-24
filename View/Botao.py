@@ -15,7 +15,7 @@ class Botao(BotaoABS):
         def comandob():
             comando()
             self.__clicar.botaoclicadoEditar(botao, inputs, botaoeditar)
-            
+
         botao = tk.Button(text= texto, height=h, width=w, font=('Arial', 12), bg='green', fg='white',
                           disabledforeground='lightgray',
                           command= comandoa, state='disabled')
