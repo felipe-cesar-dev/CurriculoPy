@@ -9,11 +9,14 @@ class TratarDados(TratarDadosABS):
         pass
 
     def salvar_nome(self, nome):
-        conn = sq.connect('curriculo.db')
-        cursor = conn.cursor()
-        cursor.execute("INSERT INTO pessoas (Nome) VALUES (?)", (nome,))
-        conn.commit()
-        conn.close()
+        try:
+            conn = sq.connect('curriculo.db')
+            cursor = conn.cursor()
+            cursor.execute("INSERT INTO pessoas (Nome) VALUES (?)", (nome,))
+            conn.commit()
+            conn.close()
+        except sq.Error as e:
+            print(f"Erro ao salvar dado: {e}")
 
     def salvar_dado(self, nome, dado, coluna):
         try:
@@ -26,26 +29,32 @@ class TratarDados(TratarDadosABS):
             print(f"Erro ao salvar dado: {e}")
 
     def salvar_dado_estrangeiro(self, dado, nome, coluna, tabela):
-        conn = sq.connect('curriculo.db')
-        cursor = conn.cursor()
-        cursor.execute(f"UPDATE {tabela} SET {coluna} = ? WHERE pessoa_nome = ?", (dado, nome))
-        if cursor.rowcount == 0:
-            cursor.execute(f"INSERT INTO {tabela} (pessoa_nome, {coluna}) VALUES (?, ?)", (nome, dado))
-        conn.commit()
-        conn.close()
+        try:
+            conn = sq.connect('curriculo.db')
+            cursor = conn.cursor()
+            cursor.execute(f"UPDATE {tabela} SET {coluna} = ? WHERE pessoa_nome = ?", (dado, nome))
+            if cursor.rowcount == 0:
+                cursor.execute(f"INSERT INTO {tabela} (pessoa_nome, {coluna}) VALUES (?, ?)", (nome, dado))
+            conn.commit()
+            conn.close()
+        except sq.Error as e:
+            print(f"Erro ao salvar dado: {e}")
 
     def salvar_dados_lista(self, nome, coluna, dados, tabela):
-        nomeCapturado = nome[0]
-        conn = sq.connect('curriculo.db')
-        cursor = conn.cursor()
-        for i in range(len(coluna)):
-            cursor.execute(f"UPDATE {tabela} SET {coluna[i]} = ? WHERE pessoa_nome = ?",
-                           (dados[i].get(), nomeCapturado))
-            if cursor.rowcount == 0:
-                cursor.execute(f"INSERT INTO {tabela} (pessoa_nome, {coluna[i]}) VALUES (?, ?)",
-                               (nomeCapturado, dados[i].get()))
-        conn.commit()
-        conn.close()
+        try:
+            nomeCapturado = nome[0]
+            conn = sq.connect('curriculo.db')
+            cursor = conn.cursor()
+            for i in range(len(coluna)):
+                cursor.execute(f"UPDATE {tabela} SET {coluna[i]} = ? WHERE pessoa_nome = ?",
+                               (dados[i].get(), nomeCapturado))
+                if cursor.rowcount == 0:
+                    cursor.execute(f"INSERT INTO {tabela} (pessoa_nome, {coluna[i]}) VALUES (?, ?)",
+                                   (nomeCapturado, dados[i].get()))
+            conn.commit()
+            conn.close()
+        except sq.Error as e:
+            print(f"Erro ao salvar dado: {e}")
 
     def limparTodosDados(self):
         conn = sq.connect('curriculo.db')
