@@ -38,5 +38,5 @@ class Botao(BotaoABS):
     def criarBotaoHTML(self, camada):
         a = CurriculoHTML()
         botao = tk.Button(text= 'Gerar Currículo', height=1, width=13, font=('Arial', 12), bg='green', fg='white',
-                          command=lambda : a.criar_e_abrir_pagina(), name='nomeSalvo', disabledforeground='lightgray')
-        botao.place(relx=0.5, rely=0.95, anchor="s")
+                          command=lambda : a.criar_e_abrir_pagina(), name='html', disabledforeground='lightgray')
+        botao.place(in_=camada, relx=0.5, rely=0.99, anchor='s')
