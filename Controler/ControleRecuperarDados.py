@@ -19,3 +19,11 @@ class ControleRecuperarDados:
                 return f"<ul>{lista_html}</ul>"
             else:
                 return ""
+
+    def criar_h(self, dados):
+        if len(dados) > 0:
+            lista_html = "".join(f"<h4>{valor}</h4>" for valor in dados[0][1:] if valor)
+            if lista_html:
+                return f"<h4>{lista_html}</h4>"
+            else:
+                return ""

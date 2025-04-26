@@ -15,7 +15,6 @@ class CurriculoHTML:
         redes = self.__recuperar.selectall('redes')
         face, insta, linkedin = redes[0][1], redes[0][2], redes[0][3]
         sobremim = self.__recuperar.selectall('sobremim')
-        textosobre = sobremim[0][1]
         experiencia = self.__recuperar.selectall('experiencias')
         formacoes = self.__recuperar.selectall('formacoes')
         cursos = self.__recuperar.selectall('cursos')
@@ -122,8 +121,9 @@ class CurriculoHTML:
                 
                         .infos h4{{
                             text-align: justify;
-                            padding: 10px;
-                            margin-top: -5px;
+                            margin-top: -15px;
+                            padding-left: 15px;
+                            padding-right: 15px;
                         }}
                 
                         .infos div{{
@@ -163,7 +163,7 @@ class CurriculoHTML:
                             <div class="infos">
                                 <h2>Um pouco sobre mim:</h2>
                                 <div></div>
-                                <h4>{textosobre}</h4>
+                                {self.__recuperar.criar_h(sobremim)}
                             </div>
                             <div class="infos">
                                 <h2>Experiência(s) Profissional(is):</h2>
@@ -200,7 +200,7 @@ class CurriculoHTML:
                 </html>
 
         """
-
+        
         with tempfile.NamedTemporaryFile(suffix=".html", delete=False) as arquivo:
             arquivo.write(html.encode())
             url = arquivo.name
