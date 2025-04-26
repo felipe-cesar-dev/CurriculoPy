@@ -3,18 +3,20 @@ from Controler.ControleBotoes import ControleBotoes
 from Controler.ControleTratarDados import ControleTratarDados
 from Model.TratarDados import TratarDados
 from View.Botao import Botao
+from View.CurriculoHTML import CurriculoHTML
 from View.Inputs import Inputs
 from View.Labels import Labels
 from View.Sessoes import Sessoes
 from View.Tela import  Tela
 
+gerarHTML = CurriculoHTML()
 clicar = ControleBotoes()
 ativacao = ControleAtivacaoInputs()
 tratar = TratarDados()
 controle = ControleTratarDados(tratar, ativacao)
 tratar.limparTodosDados()
 labels = Labels()
-botao = Botao(clicar)
+botao = Botao(clicar, gerarHTML)
 inputs = Inputs(labels, controle, botao, ativacao)
 
 sessoes = Sessoes(inputs, botao)

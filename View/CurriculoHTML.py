@@ -1,7 +1,7 @@
 import webbrowser
 import tempfile
 
-texto = 'Olá'
+
 class CurriculoHTML:
     def __init__(self):
         pass
@@ -125,7 +125,7 @@ class CurriculoHTML:
                             <div id="foto"></div>
                             <div id="nomeProf">
                                 <h1>Nome</h1>
-                                <h3>Profissão</h3>
+                                <h3>Profissao</h3>
                             </div>
                             <div id="grupoInfos">
                                 <h2>Informações Pessoais:</h2>

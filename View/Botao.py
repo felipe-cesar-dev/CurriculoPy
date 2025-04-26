@@ -1,15 +1,13 @@
 from Controler.ClassesAbstratas.ControleBotoesABS import ControleBotoesABS
 from View.ClassesAbstratas.BotaoABS import BotaoABS
 import tkinter as tk
-
 from View.CurriculoHTML import CurriculoHTML
 
-
 class Botao(BotaoABS):
-    def __init__(self, clicar: ControleBotoesABS):
+    def __init__(self, clicar: ControleBotoesABS, gerarHTML: CurriculoHTML):
         super().__init__()
         self.__clicar = clicar
-        self.__gerarHTML = CurriculoHTML()
+        self.__gerarHTML = gerarHTML
 
     def criarBotao(self, camada, texto, x, y, h, w, comando, armazenar, inputs, espacamento):
         def comandoa():
