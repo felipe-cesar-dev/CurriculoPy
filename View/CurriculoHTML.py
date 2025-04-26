@@ -200,7 +200,7 @@ class CurriculoHTML:
                 </html>
 
         """
-        
+
         with tempfile.NamedTemporaryFile(suffix=".html", delete=False) as arquivo:
             arquivo.write(html.encode())
             url = arquivo.name
