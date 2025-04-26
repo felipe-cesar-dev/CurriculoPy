@@ -8,7 +8,10 @@ class CurriculoHTML:
 
     def criar_e_abrir_pagina(self):
         dados = self.__recuperar.selectall()
-        nome = dados[0][0]
+        nome, profissao = dados[0][0], dados[0][1]
+        profissao = dados[0][1]
+        nascimento, nacionalidade, estadoC = dados[0][2], dados[0][3], dados[0][4]
+        celular, email, endereco = dados[0][5], dados[0][6], dados[0][7]
         html = f"""
             <!DOCTYPE html>
                 <html lang="en">
@@ -128,18 +131,18 @@ class CurriculoHTML:
                             <div id="foto"></div>
                             <div id="nomeProf">
                                 <h2>{nome}</h2>
-                                <h3>Profissao</h3>
+                                <h3>{profissao}</h3>
                             </div>
                             <div id="grupoInfos">
                                 <h2>Informações Pessoais:</h2>
-                                <h4>Nascimento:</h4>
-                                <h4>Nacionalidade:</h4>
-                                <h4>Estado Civil:</h4>
+                                <h4>Nascimento: {nascimento}</h4>
+                                <h4>Nacionalidade: {nacionalidade}</h4>
+                                <h4>Estado Civil: {estadoC}</h4>
                                 <div></div>
                                 <h2>Informações de Contato:</h2>
-                                <h4>Celular:</h4>
-                                <h4>E-mail:</h4>
-                                <h4>Endereço:</h4>
+                                <h4>Celular: {celular}</h4>
+                                <h4>E-mail: {email}</h4>
+                                <h4>Endereço: {endereco}</h4>
                                 <div></div>
                                 <h2>Redes:</h2>
                                 <h4>Facebook:</h4>
