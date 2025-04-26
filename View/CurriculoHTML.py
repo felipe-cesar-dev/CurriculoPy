@@ -12,24 +12,14 @@ class CurriculoHTML:
         profissao = dados[0][1]
         nascimento, nacionalidade, estadoC = dados[0][2], dados[0][3], dados[0][4]
         celular, email, endereco = dados[0][5], dados[0][6], dados[0][7]
-
         redes = self.__recuperar.selectall('redes')
         face, insta, linkedin = redes[0][1], redes[0][2], redes[0][3]
-
         sobremim = self.__recuperar.selectall('sobremim')
         textosobre = sobremim[0][1]
-
         experiencia = self.__recuperar.selectall('experiencias')
-        exp1, exp2, exp3, exp4, exp5 = experiencia[0][1],experiencia[0][2],experiencia[0][3],experiencia[0][4],experiencia[0][5]
-
         formacoes = self.__recuperar.selectall('formacoes')
-        f1, f2, f3, f4, f5 = formacoes[0][1],formacoes[0][2],formacoes[0][3],formacoes[0][4],formacoes[0][5]
-
         cursos = self.__recuperar.selectall('cursos')
-        c1, c2, c3, c4, c5 = cursos[0][1],cursos[0][2],cursos[0][3],cursos[0][4],cursos[0][5]
-
         conhecimentos = self.__recuperar.selectall('conhecimentos')
-        co1, co2, co3, co4, co5 = conhecimentos[0][1],conhecimentos[0][2],conhecimentos[0][3],conhecimentos[0][4],conhecimentos[0][5]
 
         html = f"""
             <!DOCTYPE html>
@@ -179,44 +169,28 @@ class CurriculoHTML:
                                 <h2>Experiência(s) Profissional(is):</h2>
                                 <div></div>
                                 <ul>
-                                    <li>{exp1}</li>
-                                    <li>{exp2}</li>
-                                    <li>{exp3}</li>
-                                    <li>{exp4}</li>
-                                    <li>{exp5}</li>
+                                    {self.__recuperar.criar_li(experiencia)}
                                 </ul>
                             </div>
                             <div class="infos">
                                 <h2>Formação Acadêmica:</h2>
                                 <div></div>
                                 <ul>
-                                    <li>{f1}</li>
-                                    <li>{f2}</li>
-                                    <li>{f3}</li>
-                                    <li>{f4}</li>
-                                    <li>{f5}</li>
+                                    {self.__recuperar.criar_li(formacoes)}
                                 </ul>
                                 </div>
                             <div class="infos">
                                 <h2>Cursos:</h2>
                                 <div></div>
                                 <ul>
-                                    <li>{c1}</li>
-                                    <li>{c2}</li>
-                                    <li>{c3}</li>
-                                    <li>{c4}</li>
-                                    <li>{c5}</li>
+                                    {self.__recuperar.criar_li(cursos)}
                                 </ul>
                             </div>
                             <div class="infos">
                                 <h2>Conhecimentos:</h2>
                                 <div></div>
                                 <ul>
-                                    <li>{co1}</li>
-                                    <li>{co2}</li>
-                                    <li>{co3}</li>
-                                    <li>{co4}</li>
-                                    <li>{co5}</li>
+                                    {self.__recuperar.criar_li(conhecimentos)}
                                 </ul>
                             </div>
                         </div>
@@ -231,5 +205,7 @@ class CurriculoHTML:
             arquivo.write(html.encode())
             url = arquivo.name
             webbrowser.open(f"file://{url}")
+
+
 
 

@@ -11,3 +11,11 @@ class ControleRecuperarDados:
             array_da_linha = list(linha_tupla)  # Converte a tupla em uma lista
             dados.append(array_da_linha)
         return dados
+
+    def criar_li(self, dados):
+        if len(dados) > 0:
+            lista_html = "".join(f"<li>{valor}</li>" for valor in dados[0][1:] if valor)
+            if lista_html:
+                return f"<ul>{lista_html}</ul>"
+            else:
+                return ""
