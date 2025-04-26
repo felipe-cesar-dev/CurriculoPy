@@ -1,6 +1,7 @@
 from Controler.ClassesAbstratas.ControleTratarDadosABS import ControleTratarDadosABS
 from Model.TratarDadosABS import TratarDadosABS
 from tkinter import messagebox
+import re
 
 class ControleTratarDados(ControleTratarDadosABS):
     def __init__(self, tratar: TratarDadosABS, ativacao):
@@ -35,7 +36,9 @@ class ControleTratarDados(ControleTratarDadosABS):
 
     def verificar_nome(self, nome, entradas, textos, botoes, ativar, array, botaoNome):
         if nome.get() == "":
-            messagebox.showerror("Erro", "Por favor, digite um nome")
+            messagebox.showerror("Erro", "Por favor, digite um nome válido.")
+        elif not re.match("^[a-zA-ZÀ-ú ]+$", nome.get()):
+            messagebox.showerror("Erro", "Por favor, digite um nome válido. Somente letras são permitidas.")
         else:
             self.salvar_nome(array, nome)
             self.__ativacao.ativar_tudo(ativar, entradas, textos)
