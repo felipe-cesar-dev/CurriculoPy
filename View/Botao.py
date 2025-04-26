@@ -33,8 +33,11 @@ class Botao(BotaoABS):
                           command=comando, name='nomeSalvo', disabledforeground='lightgray')
         botao.place(in_=camada, relx=x, rely=y)
         armazenar.append(botao)
+        self.criarBotaoHTML(camada, armazenar)
 
-    def criarBotaoHTML(self, camada):
+    def criarBotaoHTML(self, camada, armazenar):
         botao = tk.Button(text= 'Gerar Currículo', height=1, width=13, font=('Arial', 12), bg='green', fg='white',
-                          command=lambda : self.__gerarHTML.criar_e_abrir_pagina(), name='html', disabledforeground='lightgray')
-        botao.place(in_=camada, relx=0.5, rely=0.99, anchor='s')
+                          command=lambda : self.__gerarHTML.criar_e_abrir_pagina(), name='html',
+                          disabledforeground='lightgray', state='disabled')
+        botao.place(in_=camada, relx=2.2, rely=2.95, anchor='s')
+        armazenar.append(botao)

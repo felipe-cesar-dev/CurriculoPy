@@ -17,7 +17,7 @@ class Tela:
         self.labels = label
         self.sessoes.criarSessoes(self.camada2)
         self.labels.criarLabels(self.camada2)
-        self.botao.criarBotaoHTML(self.camada2)
+
 
     def run(self):
         self.tk.mainloop()
