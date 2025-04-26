@@ -42,3 +42,6 @@ class ControleTratarDados(ControleTratarDadosABS):
             self.__ativacao.ativar_tudo(ativar, entradas, textos)
             self.__ativacao.ativar_botoes(botoes, ativar, nome)
             botaoNome.config(state = 'disabled')
+
+    def selectall(self):
+        self.__tratar.selectall()

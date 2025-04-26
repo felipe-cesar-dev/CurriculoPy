@@ -7,7 +7,6 @@ class CurriculoHTML:
         pass
 
     def criar_e_abrir_pagina(self):
-        texto = 'Olá'
         html = f"""
             <!DOCTYPE html>
                 <html lang="en">

@@ -24,4 +24,9 @@ class TratarDadosABS(ABC):
     def limparTodosDados(self):
         pass
 
+    @abstractmethod
+    def selectall(self):
+        pass
+
+
 

@@ -9,6 +9,7 @@ class Botao(BotaoABS):
     def __init__(self, clicar: ControleBotoesABS):
         super().__init__()
         self.__clicar = clicar
+        self.__gerarHTML = CurriculoHTML()
 
     def criarBotao(self, camada, texto, x, y, h, w, comando, armazenar, inputs, espacamento):
         def comandoa():
@@ -36,7 +37,6 @@ class Botao(BotaoABS):
         armazenar.append(botao)
 
     def criarBotaoHTML(self, camada):
-        a = CurriculoHTML()
         botao = tk.Button(text= 'Gerar Currículo', height=1, width=13, font=('Arial', 12), bg='green', fg='white',
-                          command=lambda : a.criar_e_abrir_pagina(), name='html', disabledforeground='lightgray')
+                          command=lambda : self.__gerarHTML.criar_e_abrir_pagina(), name='html', disabledforeground='lightgray')
         botao.place(in_=camada, relx=0.5, rely=0.99, anchor='s')
