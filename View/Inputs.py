@@ -29,8 +29,17 @@ class Inputs(InputsABC):
         return input_widget
 
     def inputText(self, camada, a, b, ativar):
-        texto_widget = tk.Text(camada,font=("Arial", 12), height=14, width=19, bg='light gray', state=ativar)
+        texto_widget = tk.Text(camada, font=("Arial", 12), height=14, width=19, bg='light gray', state=ativar)
         texto_widget.place(relx=a, rely=b)
+
+        def verificar_limite(event=None):
+            texto = texto_widget.get("1.0", tk.END)
+            if len(texto) > 300:
+                texto_widget.delete("1.0", tk.END)
+                texto_widget.insert("1.0", texto[:300])
+
+        texto_widget.bind("<KeyRelease>", verificar_limite)
+
         self.__textos.append(texto_widget)
         return texto_widget
 

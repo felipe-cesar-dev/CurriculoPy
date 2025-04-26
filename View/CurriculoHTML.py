@@ -125,6 +125,10 @@ class CurriculoHTML:
                             padding-left: 15px;
                             padding-right: 15px;
                         }}
+                        
+                        .infos li{{
+                            margin-left: -20px
+                        }}
                 
                         .infos div{{
                             border: 1px, solid rgb(58, 58, 58);
