@@ -5,4 +5,10 @@ class ControleRecuperarDados:
         self.__recuperar = recuperar
 
     def selectall(self):
-        self.__recuperar.selectall()
+        resultados = self.__recuperar.selectall()
+        dados = []
+        for linha_tupla in resultados:
+            array_da_linha = list(linha_tupla)  # Converte a tupla em uma lista
+            dados.append(array_da_linha)
+
+        return dados

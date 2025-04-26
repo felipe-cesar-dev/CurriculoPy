@@ -1,8 +1,6 @@
 import webbrowser
 import tempfile
-
 from Controler.ControleRecuperarDados import ControleRecuperarDados
-
 
 class CurriculoHTML:
     def __init__(self, recuperar: ControleRecuperarDados):
@@ -10,6 +8,7 @@ class CurriculoHTML:
 
     def criar_e_abrir_pagina(self):
         dados = self.__recuperar.selectall()
+        nome = dados[0][0]
         html = f"""
             <!DOCTYPE html>
                 <html lang="en">
@@ -56,6 +55,7 @@ class CurriculoHTML:
                 
                         #nomeProf{{
                             color: white;
+                            text-align: center;
                         }}
                 
                         #nomeProf h3{{
@@ -127,7 +127,7 @@ class CurriculoHTML:
                         <div id="sessaoPrincipal">
                             <div id="foto"></div>
                             <div id="nomeProf">
-                                <h1>Nome</h1>
+                                <h2>{nome}</h2>
                                 <h3>Profissao</h3>
                             </div>
                             <div id="grupoInfos">

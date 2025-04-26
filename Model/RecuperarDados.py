@@ -9,11 +9,7 @@ class RecuperarDados():
         cursor = conexao.cursor()
         cursor.execute("SELECT * FROM pessoas")
         resultados = cursor.fetchall()
-        dados = []  # Inicializa uma lista para conter os "arrays" (listas)
-
-        for linha_tupla in resultados:
-            array_da_linha = list(linha_tupla)  # Converte a tupla em uma lista
-            dados.append(array_da_linha)
-
         cursor.close()
         conexao.close()
+
+        return resultados
