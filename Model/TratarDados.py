@@ -67,12 +67,3 @@ class TratarDados(TratarDadosABS):
         conn.commit()
         conn.close()
 
-    def selectall(self):
-        conexao = sq.connect('curriculo.db')
-        cursor = conexao.cursor()
-        cursor.execute("SELECT * FROM pessoas")
-        resultados = cursor.fetchall()
-        for linha in resultados:
-            print(linha)
-        cursor.close()
-        conexao.close()

@@ -1,12 +1,15 @@
 import webbrowser
 import tempfile
 
+from Controler.ControleRecuperarDados import ControleRecuperarDados
+
 
 class CurriculoHTML:
-    def __init__(self):
-        pass
+    def __init__(self, recuperar: ControleRecuperarDados):
+        self.__recuperar = recuperar
 
     def criar_e_abrir_pagina(self):
+        dados = self.__recuperar.selectall()
         html = f"""
             <!DOCTYPE html>
                 <html lang="en">

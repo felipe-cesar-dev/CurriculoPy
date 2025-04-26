@@ -27,7 +27,3 @@ class ControleTratarDadosABS(ABC):
     @abstractmethod
     def verificar_nome(self, nome, entradas, textos, botoes, ativar, array, botaoNome):
         pass
-
-    @abstractmethod
-    def selectall(self):
-        pass

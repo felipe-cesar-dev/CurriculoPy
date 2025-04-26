@@ -13,7 +13,6 @@ class ControleTratarDados(ControleTratarDadosABS):
         lenNome = nome.get()
         array.append(lenNome.title())
         self.__tratar.salvar_nome(array[0])
-        print(array)
         return array.append(lenNome)
 
     def salvar_dados(self, nome, dado, coluna):
@@ -42,6 +41,3 @@ class ControleTratarDados(ControleTratarDadosABS):
             self.__ativacao.ativar_tudo(ativar, entradas, textos)
             self.__ativacao.ativar_botoes(botoes, ativar, nome)
             botaoNome.config(state = 'disabled')
-
-    def selectall(self):
-        self.__tratar.selectall()

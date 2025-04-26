@@ -1,5 +1,6 @@
 from Controler.ControleAtivacaoInputs import ControleAtivacaoInputs
 from Controler.ControleBotoes import ControleBotoes
+from Controler.ControleRecuperarDados import ControleRecuperarDados
 from Controler.ControleTratarDados import ControleTratarDados
 from Model.TratarDados import TratarDados
 from View.Botao import Botao
@@ -8,8 +9,11 @@ from View.Inputs import Inputs
 from View.Labels import Labels
 from View.Sessoes import Sessoes
 from View.Tela import  Tela
+from Model.RecuperarDados import RecuperarDados
 
-gerarHTML = CurriculoHTML()
+recuperardb = RecuperarDados()
+recuperar = ControleRecuperarDados(recuperardb)
+gerarHTML = CurriculoHTML(recuperar)
 clicar = ControleBotoes()
 ativacao = ControleAtivacaoInputs()
 tratar = TratarDados()
