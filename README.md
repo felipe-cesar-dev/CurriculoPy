@@ -29,7 +29,7 @@
 <p>O arquivo implementa os métodos da classe mencionada acima. A ideia central é que todos os botões da aplicação estejam em state = 'disabled', enquanto o botao referente ao salvamento do nome do usuário, não seja ativado. Esse botão entra em estado 'disabled', uma vez que haja sucesso no salvamento do nome, mudando para 'normal', os outros botões referentes a 'salvar' e 'gerar curriculo'.
 </p>
 <h2>/Controler/ClassesAbstratas/ControleBotoesABS.py</h2>
-<p>Essa classe descreve métodos para a ativação e desativação dos botões salvar e editar</p>
+<p>A classe no código, descreve métodos para a ativação e desativação dos botões salvar e editar.</p>
 <h2>/Controler/ControleBotoes.py</h2>
 <p>Esse código implementa os métodos da classe acima, e trata de controlar a ativação e desativação dos botoes 'editar' e 'salvar', alternando entre estados. Quando um entra em estado 'normal', o outro entra em 'disabled', permitindo assim alterar alguma informação do usuário, dentro do bd, uma vez que o dado ja tenha sido salvo.</p>
 <h2>Controler/ClassesAbstratas/ControleTratarDadosABS.py</h2>
