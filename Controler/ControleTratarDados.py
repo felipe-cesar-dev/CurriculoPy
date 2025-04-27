@@ -12,19 +12,19 @@ class ControleTratarDados(ControleTratarDadosABS):
     def salvar_nome(self, array, nome):
         array.clear()
         lenNome = nome.get()
-        array.append(lenNome.title())
+        array.append(lenNome)
         self.__tratar.salvar_nome(array[0])
         return array.append(lenNome)
 
     def salvar_dados(self, nome, dado, coluna):
         colunaNome = nome[0]
         data = dado.get()
-        self.__tratar.salvar_dado(colunaNome, data.title(), coluna)
+        self.__tratar.salvar_dado(colunaNome, data, coluna)
 
     def salvar_dado_estrangeiro(self, dado, nome, coluna, tabela):
         capturaDado = dado.get()
         pessoa_nome = nome[0]
-        self.__tratar.salvar_dado_estrangeiro(capturaDado.title(), pessoa_nome, coluna, tabela)
+        self.__tratar.salvar_dado_estrangeiro(capturaDado, pessoa_nome, coluna, tabela)
 
     def salvar_dados_lista(self, nome, coluna, dados, tabela):
         self.__tratar.salvar_dados_lista(nome, coluna, dados, tabela)

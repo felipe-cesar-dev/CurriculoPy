@@ -68,7 +68,7 @@ class CurriculoHTML:
                                 display:flex;
                                 flex-direction: column;
                                 align-items: center;
-                                height: 1300px;
+                                height: 1400px;
                                 background-color: rgb(1, 52, 162);
                                 width: 290px;
                                 border: 2px solid white;
@@ -90,6 +90,8 @@ class CurriculoHTML:
                             #nomeProf{{
                                 color: white;
                                 text-align: center;
+                                margin-left:10px;
+                                margin-right:10px;
                             }}
                     
                             #nomeProf h3{{
@@ -99,7 +101,7 @@ class CurriculoHTML:
                             #grupoInfos{{
                                 border: 2px solid white;
                                 width: 270px;
-                                height: 733px;
+                                height: 900px;
                                 border-radius: 10px;
                                 display: flex;
                                 flex-direction: column;
@@ -130,7 +132,7 @@ class CurriculoHTML:
                             }}
                     
                             .infos{{
-                                margin-left: 60px;
+                                margin-left: 70px;
                                 margin-top: 20px;
                                 width: 450px;
                                 height: auto;
@@ -146,7 +148,7 @@ class CurriculoHTML:
                                 text-align: justify;
                                 margin-top: -15px;
                                 padding-left: 15px;
-                                padding-right: 15px;
+                                padding-right: 30px;
                             }}
                             
                             .p{{
