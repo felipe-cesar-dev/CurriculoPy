@@ -149,6 +149,13 @@ class CurriculoHTML:
                                 padding-right: 15px;
                             }}
                             
+                            .p{{
+                                 font-family: Arial, Helvetica, sans-serif;
+                                 color: white;
+                                 margin-top: -15px;
+                                 margin-left: 11px;
+                            }}
+                            
                             .infos li{{
                                 margin-left: -20px
                             }}
@@ -191,19 +198,19 @@ class CurriculoHTML:
                                 </div>
                                 <div id="grupoInfos">
                                     <h2>Informações Pessoais:</h2>
-                                    <h4>Nascimento: {nascimento}</h4>
-                                    <h4>Nacionalidade: {nacionalidade}</h4>
-                                    <h4>Estado Civil: {estadoC}</h4>
+                                    <h4>Nascimento: </h4> <p class = 'p'>{nascimento}</p>
+                                    <h4>Nacionalidade: </h4> <p class = 'p'>{nacionalidade}</p>
+                                    <h4>Estado Civil: </h4> <p class = 'p'>{estadoC}</p>
                                     <div></div>
                                     <h2>Informações de Contato:</h2>
-                                    <h4>Celular: {celular}</h4>
-                                    <h4>E-mail: {email}</h4>
-                                    <h4>Endereço: {endereco}</h4>
+                                    <h4>Celular: </h4> <p class = 'p'>{celular}</p>
+                                    <h4>E-mail: </h4> <p class = 'p'>{email}</p>
+                                    <h4>Endereço: </h4><p class = 'p'>{endereco}</p>
                                     <div></div>
                                     <h2>Redes:</h2>
-                                    <h4>Facebook: {face}</h4>
-                                    <h4>Instagram: {insta}</h4>
-                                    <h4>Linkedin: {linkedin}</h4>
+                                    <h4>Facebook: </h4> <p class = 'p'>{face}</p>
+                                    <h4>Instagram: </h4> <p class = 'p'>{insta}</p>
+                                    <h4>Linkedin: </h4> <p class = 'p'>{linkedin}</p>
                                 </div>
                             </div>
                             <div id="sessaoInfosAdicionais">
