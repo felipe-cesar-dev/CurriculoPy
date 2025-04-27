@@ -29,6 +29,9 @@ class CurriculoHTML:
                         <meta charset="UTF-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
                         <title>Document</title>
+                        <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+                        <script src="https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
                         <style>
                             body{{
                                 justify-content: center;
@@ -38,9 +41,25 @@ class CurriculoHTML:
                                 margin: 0;
                             }}
                             
+                            #salvar-pdf{{
+                                height: 60px;
+                                border: 1px solid white;
+                                color: white;
+                                border-radius: 10px;
+                                background-color: rgb(1, 52, 162);
+                                cursor: pointer;
+                            }}
+                            
+                            #salvar-pdf:hover{{
+                                background-color: white;
+                                color:rgb(1, 52, 162);
+                                transition: 0.5s;
+                                border: 1px solid rgb(1, 52, 162);
+                            }}
+                            
                             #curriculo{{
                                 background-color: lightblue;
-                                height: 1095px;
+                                height: 1800px;
                                 width: 900px;
                                 display: flex;
                             }}
@@ -49,12 +68,11 @@ class CurriculoHTML:
                                 display:flex;
                                 flex-direction: column;
                                 align-items: center;
-                                height: 1090px;
+                                height: 1300px;
                                 background-color: rgb(1, 52, 162);
                                 width: 290px;
                                 border: 2px solid white;
                                 margin-left: 0px;
-                                border-radius: 10px;
                             }}
                     
                             #foto{{
@@ -109,7 +127,7 @@ class CurriculoHTML:
                             }}
                     
                             .infos{{
-                                margin-left: 20px;
+                                margin-left: 60px;
                                 margin-top: 20px;
                                 width: 450px;
                                 height: auto;
@@ -201,10 +219,23 @@ class CurriculoHTML:
                                 </div>
                             </div>
                         </div>
+                        
+                        <button id="salvar-pdf"><h2><i class="fa-solid fa-file-arrow-down"></i> Baixar Currículo</h2></button>
+                        <script>
+                            document.getElementById("salvar-pdf").addEventListener("click", function() {{
+                                html2canvas(document.getElementById("curriculo")).then(canvas => {{
+                                    const imgData = canvas.toDataURL('image/png');
+                                    const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
+                                    const imgWidth = 210; // largura da página A4 em mm
+                                    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                                    pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+                                    pdf.save("curriculo.pdf");
+                                }});
+                            }});
+                        </script>
                     </body>
-                    <script></script>
                     </html>
-    
+                    
             """
             self.gerarHTML(html)
         except IndexError as e:
