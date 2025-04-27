@@ -23,7 +23,7 @@ class Inputs(InputsABC):
         self.x, self.y, self.w, self.h, self.vinteseis = 0.28, 0.83, 5, 1, 0.26
 
     def input(self, camada, a, b, ativar):
-        input_widget = tk.Entry(camada, bg='light gray', font=("Arial", 14), width=15, state=ativar)
+        input_widget = tk.Entry(camada, bg='white', font=("Arial", 14), width=15, state=ativar)
         input_widget.place(relx=a, rely=b, anchor=CENTER)
         self.__entradas.append(input_widget)
         return input_widget

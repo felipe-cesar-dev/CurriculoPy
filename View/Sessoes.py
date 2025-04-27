@@ -38,6 +38,6 @@ class Sessoes(SessoesAbstrata):
         )
 
     def sessao(self, camada, w, h, x, y):
-        sessao = tk.Canvas(camada, width=w, height=h, bg='#ffffff', highlightthickness=0)
+        sessao = tk.Canvas(camada, width=w, height=h, bg='#8b9cff', highlightthickness=0)
         sessao.place(relx=x, rely=y, anchor=tk.CENTER)
         return sessao

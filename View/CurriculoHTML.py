@@ -206,13 +206,16 @@ class CurriculoHTML:
                     </html>
     
             """
-
-            with tempfile.NamedTemporaryFile(suffix=".html", delete=False) as arquivo:
-                arquivo.write(html.encode())
-                url = arquivo.name
-                webbrowser.open(f"file://{url}")
+            self.gerarHTML(html)
         except IndexError as e:
             messagebox.showerror("Erro", "Por favor, salve todos os campos antes de continuar.")
+
+    def gerarHTML(self, html):
+        with tempfile.NamedTemporaryFile(suffix=".html", delete=False) as arquivo:
+            arquivo.write(html.encode())
+            url = arquivo.name
+            webbrowser.open(f"file://{url}")
+
 
 
 
