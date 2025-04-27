@@ -12,8 +12,8 @@ class CurriculoHTML:
             dados = self.__recuperar.selectall('pessoas')
             nome, profissao = dados[0][0], dados[0][1]
             profissao = dados[0][1]
-            nascimento, nacionalidade, estadoC = dados[0][2], dados[0][3], dados[0][4]
-            celular, email, endereco = dados[0][5], dados[0][6], dados[0][7]
+            celular, email, endereco = dados[0][2], dados[0][3], dados[0][4]
+            nascimento, estadoC, nacionalidade = dados[0][5], dados[0][6], dados[0][7]
             redes = self.__recuperar.selectall('redes')
             face, insta, linkedin = redes[0][1], redes[0][2], redes[0][3]
             sobremim = self.__recuperar.selectall('sobremim')
@@ -82,6 +82,9 @@ class CurriculoHTML:
                                 border-radius: 50%;
                                 border: 2px solid white;
                                 margin-top: 10px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
                             }}
                     
                             #nomeProf{{
@@ -155,13 +158,33 @@ class CurriculoHTML:
                                 margin-left: 10px;
                                 margin-right: 10px;
                             }}
+                            
+                            .custom-file-upload {{
+                                display: inline-block;
+                                padding: 6px 12px;
+                                cursor: pointer;
+                                color: white;
+                                font-size: 60px;
+                                display: flex;
+                                justify-content: center;
+                            }}
+                            
+                            .custom-file-upload:hover{{
+                                color: lightgray;
+                                transition: 0.5s;
+                            }}
                     
                         </style>
                     </head>
                     <body>
                         <div id=curriculo>
                             <div id="sessaoPrincipal">
-                                <div id="foto"></div>
+                                <div id="foto">
+                                    <label for="selecionar-foto" class="custom-file-upload">
+                                        <i class="fa-solid fa-file-arrow-up"></i>
+                                    </label>
+                                    <input type="file" id="selecionar-foto" accept="image/*" style="display: none;">
+                                </div>
                                 <div id="nomeProf">
                                     <h2>{nome}</h2>
                                     <h3>{profissao}</h3>
@@ -222,6 +245,21 @@ class CurriculoHTML:
                         
                         <button id="salvar-pdf"><h2><i class="fa-solid fa-file-arrow-down"></i> Baixar Currículo</h2></button>
                         <script>
+                                document.getElementById("selecionar-foto").addEventListener("change", function(event) {{
+                                const arquivo = event.target.files[0];
+                                const reader = new FileReader();
+                                reader.onload = function(event) {{
+                                    const imagem = document.createElement("img");
+                                    imagem.src = event.target.result;
+                                    imagem.style.width = "100%";
+                                    imagem.style.height = "100%";
+                                    imagem.style.objectFit = "cover";
+                                    imagem.style.borderRadius = "50%";
+                                    document.getElementById("foto").innerHTML = "";
+                                    document.getElementById("foto").appendChild(imagem);
+                                }};
+                                reader.readAsDataURL(arquivo);
+                            }});
                             document.getElementById("salvar-pdf").addEventListener("click", function() {{
                                 html2canvas(document.getElementById("curriculo")).then(canvas => {{
                                     const imgData = canvas.toDataURL('image/png');
