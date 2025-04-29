@@ -1,6 +1,6 @@
 import webbrowser
 import tempfile
-from Controler.ControleRecuperarDados import ControleRecuperarDados
+from Controller.ControleRecuperarDados import ControleRecuperarDados
 from tkinter import messagebox
 
 class CurriculoHTML:

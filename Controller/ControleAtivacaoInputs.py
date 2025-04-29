@@ -1,4 +1,4 @@
-from Controler.ClassesAbstratas.ControleAtivacaoInputsABS import ControleAtivacaoInputsABS
+from Controller.ClassesAbstratas.ControleAtivacaoInputsABS import ControleAtivacaoInputsABS
 import tkinter as tk
 
 

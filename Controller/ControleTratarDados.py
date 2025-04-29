@@ -1,4 +1,4 @@
-from Controler.ClassesAbstratas.ControleTratarDadosABS import ControleTratarDadosABS
+from Controller.ClassesAbstratas.ControleTratarDadosABS import ControleTratarDadosABS
 from Model.TratarDadosABS import TratarDadosABS
 from tkinter import messagebox
 import re

@@ -1,4 +1,4 @@
-from Controler.ClassesAbstratas.ControleBotoesABS import ControleBotoesABS
+from Controller.ClassesAbstratas.ControleBotoesABS import ControleBotoesABS
 
 
 class ControleBotoes(ControleBotoesABS):

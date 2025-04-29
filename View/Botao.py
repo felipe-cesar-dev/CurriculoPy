@@ -1,4 +1,4 @@
-from Controler.ClassesAbstratas.ControleBotoesABS import ControleBotoesABS
+from Controller.ClassesAbstratas.ControleBotoesABS import ControleBotoesABS
 from View.ClassesAbstratas.BotaoABS import BotaoABS
 import tkinter as tk
 from View.CurriculoHTML import CurriculoHTML
